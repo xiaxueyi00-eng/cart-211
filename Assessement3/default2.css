@@ -7,8 +7,8 @@ body {
 }
 
 #wrapper {
-    width: 80%;
-    margin: 40px auto;
+    width: 75%;
+    margin: 45px auto;
     background: #fff;
     padding: 30px;
     border-radius: 10px;
@@ -17,8 +17,8 @@ body {
 
 header img {
     width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
 }
 
 header h1 {

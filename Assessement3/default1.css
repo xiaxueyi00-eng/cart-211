@@ -115,14 +115,216 @@ table img {
     max-height: 100%;
 }
 
-body.bio-page header h1 {
+/* layout 1 */
+body.layout1 #wrapper {
+    width: 70%;
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+
+}
+
+body.layout2 header h1 {
+    color: darkre;
+    text-align: left;
+    font-size: 28px;
+
+}
+
+/*layout 2 */
+
+body.layout2 #wrapper {
+    width: 80%;
+    margin: 30p auto;
+    background: #f0f0f0;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+body.layout2 header h1 {
     color: darkblue;
+    text-align: center;
+    font-size: 30px;
 }
 
-body.works-page header h1 {
+body.layout2 section {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/*layout3*/
+
+body.layout3 #wrapper {
+    width: 95%;
+    margin: 20px auto;
+    background: #f9f9f9;
+    padding: 40px;
+    border: 2px solid darkred;
+}
+
+body.layout3 header h1 {
     color: darkgreen;
+    text-align: right;
+    font-size: 32px;
+
 }
 
-body.layout-page header h1 {
+body.layout3 section {
+    display: flex;
+    gap: 20px;
+}
+
+body.layout3 section article {
+    flex: 1;
+}
+
+/* bio1 */
+
+body.bio1 #wrapper {
+    width: 70%;
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+body.bio1 header h1 {
+    color: darkblue;
+    text-align: left;
+}
+
+body.bio1 header h2 {
+    color: gray;
+    text-align: left;
+}
+
+body.bio1 header img {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+/* bio2 */
+body.bio2 #wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+body.bio2 img {
+    width: 250px;
+    border-radius: 8px;
+}
+
+body.bio2 .bio-text {
+    flex: 1;
+}
+
+/* bio3 */
+body.bio3 #wrapper {
+    width: 80%;
+    margin: 20px auto;
+    background: #f9f9f9;
+    padding: 30px;
+    border: 2px dashed navy;
+    border-radius: 12px;
+    text-align: center;
+}
+
+body.bio3 header h1 {
+    color: navy;
+    text-align: center;
+    font-size: 30px;
+}
+
+body.bio3 header h2 {
+    color: darkgray;
+    text-align: center;
+}
+
+body.bio3 .bio3-photo img {
+    width: 300px;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+
+body.bio3 .bio3-text section {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/*works1 */
+
+body.works1 #wrapper {
+    width: 70%;
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.works1 header h1 {
     color: darkred;
+    text-align: center;
+    font-size: 28px;
+    border-bottom: 2px solid darkred;
+    padding-bottom: 10px;
+}
+
+/* works2 */
+body.works2 #wrapper {
+    width: 90%;
+    margin: 20px auto;
+    background: #f0f0f0;
+    padding: 30px;
+}
+
+body.works2 header h1 {
+    color: darkblue;
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+body.works2 section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+body.works2 article {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*works3 */
+body.works3 #wrapper {
+    width: 95%;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 40px;
+    border: 2px solid darkgreen;
+}
+
+body.works3 header h1 {
+    color: darkgreen;
+    text-align: right;
+}
+
+body.works-page .bio-box {
+    background: #f9f9f9;
+    border: 2px solid darkgreen;
+    width: 80%;
+}
+
+body.works-page h1 {
+    color: darkgreen;
+    text-align: center;
 }

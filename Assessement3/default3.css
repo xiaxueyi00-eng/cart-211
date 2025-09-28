@@ -97,6 +97,7 @@ footer a {
 }
 
 .book-gallery {
+    /* Book gallery container: grid layout, auto-fill columns, min 150px each, 20px gap, 20px top margin */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 20px;
@@ -104,6 +105,7 @@ footer a {
 }
 
 .books-gallery figure {
+    /* Each book card: no margin, white background, 12px padding, 10px rounded corners, shadow, center text, smooth transition */
     margin: 0;
     background: #fff;
     padding: 12px;
@@ -114,13 +116,16 @@ footer a {
 }
 
 .books-gallery figure:hover {
+    /* On hover: slightly scale up the card */
     transform: scale(1.05);
 }
 
 .books-gallery img {
     display: 120px;
     width: 180px;
+    /* image width */
     object-fit: cover;
+    /* image height */
     border-radius: 6px;
     margin-bottom: 10px;
     display: block;
@@ -129,6 +134,7 @@ footer a {
 }
 
 .books-gallery figure:hover {
+    /* On hover: text slightly smaller, dark gray color, move down 5px */
     font-size: 0.9em;
     color: #333;
     margin-top: 5px;

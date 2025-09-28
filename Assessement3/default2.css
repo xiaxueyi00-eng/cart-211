@@ -98,12 +98,14 @@ footera {
 }
 
 .books {
+    /* Grid container: 3 auto-width columns with 20px gap */
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 20px;
 }
 
 .books-list {
+    /* List container: vertical layout for book items, 15px gap, 15px top margin */
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -111,6 +113,7 @@ footera {
 }
 
 .book-item {
+    /* Single book item: horizontal layout, center aligned, 15px gap, background, padding, rounded corners, shadow */
     display: flex;
     align-items: center;
     gap: 15px;
@@ -121,11 +124,13 @@ footera {
 }
 
 .book-item img {
+    /* Book item image: fixed width 80px, rounded corners 4px */
     width: 80px;
     border-radius: 4px;
 }
 
 .book-item span {
+    /* Book item text: font size 1em, bold, dark gray color */
     font-size: 1em;
     font-weight: bold;
     color: #333;

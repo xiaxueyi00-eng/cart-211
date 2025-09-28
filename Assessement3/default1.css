@@ -86,18 +86,25 @@ footer a {
 }
 
 .books {
+    /* Use CSS Grid to arrange content */
     display: grid;
+    /* Create 4 equal-width columns */
     grid-template-columns: repeat(4, 1fr);
+    /* Space of 20px between grid items */
     gap: 20px;
+    /* Add space above the .books section */
     margin-top: 20px;
 }
 
 .books figure {
+    /* Remove the default margin of <figure> */
     margin: 0;
+    /* Center-align the content inside each figure */
     text-align: center;
 }
 
 .books img {
+    /* Style for all book cover images: set fixed width, keep aspect ratio, center them, add a light border and rounded corners */
     width: 150px;
     height: auto;
     margin: 0 auto;
@@ -106,6 +113,7 @@ footer a {
 }
 
 .books figcaption {
+    /* Styles for book captions: space above the image, font size, and text color */
     margin-top: 8px;
     font-size: 14px;
     color: #555;

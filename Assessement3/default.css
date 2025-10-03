@@ -1,9 +1,9 @@
 body {
-
-    font-family: Arial;
-    padding: 0;
-    margin: 0;
-
+    font-family: "Epunda Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    /* normal */
+    font-style: normal;
 }
 
 #wrapper {
@@ -126,4 +126,118 @@ table img {
     max-width: 100%;
     max-height: 100%;
 
+}
+
+@media(max-width: 480px) {
+    nav {
+        margin: 0 auto;
+        margin-bottom: 50px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 0;
+        line-height: 30px;
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        border-bottom: 4px solid #000;
+        background: #000;
+        z-index: 1000;
+        color: white;
+
+
+    }
+}
+
+nav a {
+    color: rgb(125, 22, 22);
+
+}
+
+h1 {
+    margin-top: 50px;
+}
+
+#wrapper {
+    margin-top: 50px;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    float: none;
+
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 12px;
+
+}
+
+.books {
+    grid-template-columns: auto, auto;
+    gap: 16px;
+
+
+}
+
+/*ipad*/
+@media(max-width:768px) {
+    #wrapper {
+        width: 80%;
+        float: none;
+        margin: 0 auto;
+
+    }
+}
+
+nav {
+    position: relative;
+    float: none;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.books {
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+/*iphone*/
+@media(max-width:480px) {
+    #wrapper {
+        width: 90%;
+        margin: 0 auto;
+        float: none;
+
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        background: #000;
+        border-bottom: 3px solid #000;
+        padding: 10px 0;
+        position: relative;
+
+
+    }
+
+    nav a {
+        color: rgb(211, 43, 43);
+        margin: 5px;
+
+    }
+
+    .books {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 40px;
+    }
 }

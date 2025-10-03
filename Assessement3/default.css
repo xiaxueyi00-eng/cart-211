@@ -2,14 +2,13 @@ body {
     font-family: "Epunda Slab", serif;
     font-optical-sizing: auto;
     font-weight: 400;
-    /* normal */
     font-style: normal;
 }
 
 #wrapper {
 
     margin-top: 0px;
-    float: roght;
+    float: right;
     width: 60%;
     margin-right: 50px;
 }
@@ -23,7 +22,7 @@ header h1 {
 
 header h2 {
 
-    margin-top: opx;
+    margin-top: 0px;
     margin-bottom: 30px;
     text-align: right;
     font-size: 20px;
@@ -86,33 +85,32 @@ footer {
     font-style: italic;
 }
 
-footera {
+footer a {
     text-decoration: none;
     color: black;
 
 }
 
-books {
+.books {
     display: grid;
     grid-template-columns: auto auto auto;
     max-width: 100%;
     height: 16px;
 
-
 }
 
-books img {
+.books img {
     display: block;
     width: 100%;
     height: auto;
 }
 
-books>div {
+.books>div {
     text-align: center;
     padding: 10px;
 }
 
-books figure {
+.books figure {
     margin: 0;
 }
 
@@ -146,40 +144,39 @@ table img {
         z-index: 1000;
         color: white;
 
+    }
+
+    nav a {
+        color: rgb(125, 22, 22);
+
+    }
+
+    h1 {
+        margin-top: 50px;
+    }
+
+    #wrapper {
+        margin-top: 50px;
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        float: none;
+
+    }
+
+    footer {
+        margin-top: 40px;
+        font-size: 12px;
+
+    }
+
+    .books {
+        grid-template-columns: auto auto;
+        gap: 16px;
 
     }
 }
 
-nav a {
-    color: rgb(125, 22, 22);
-
-}
-
-h1 {
-    margin-top: 50px;
-}
-
-#wrapper {
-    margin-top: 50px;
-    position: relative;
-    width: 90%;
-    margin: 0 auto;
-    float: none;
-
-}
-
-footer {
-    margin-top: 40px;
-    font-size: 12px;
-
-}
-
-.books {
-    grid-template-columns: auto, auto;
-    gap: 16px;
-
-
-}
 
 /*ipad*/
 @media(max-width:768px) {
@@ -203,6 +200,7 @@ nav {
     grid-template-columns: repeat(2, 1fr);
 
 }
+
 
 /*iphone*/
 @media(max-width:480px) {

@@ -43,17 +43,15 @@ header img {
 }
 
 nav {
-    margin-top: 50px;
-    margin-left: 50px;
-    float: left;
-    width: 15%;
-    line-height: 30px;
-    position: fixed;
+    background: #070707;
+    text-align: center;
+    padding: 10px;
 }
 
 nav a {
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
+    margin: 0 10px;
     font-weight: bold;
 }
 

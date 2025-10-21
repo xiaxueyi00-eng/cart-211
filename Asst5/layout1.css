@@ -2,7 +2,11 @@
 body {
     background-color: #111;
     color: #eee;
-    font-family: "Roboto", sans-serif;
+    font-family: "Marmelad", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
 }
 
 /* ===== Wrapper ===== */
@@ -16,7 +20,9 @@ body {
 /* ===== Header Styles ===== */
 header h1 {
     color: #ff9900;
-    text-align: left;
+    text-align: right;
+    font-size: 25px;
+    margin-bottom: 5px;
 }
 
 header h2 {
@@ -24,7 +30,7 @@ header h2 {
     margin-bottom: 30px;
     text-align: right;
     font-size: 28px;
-    color: darkgrey;
+    color: rgb(91, 22, 22);
 }
 
 header h3 {
@@ -60,14 +66,40 @@ nav {
 }
 
 
+/* ===== Floating Logo (Updated version) ===== */
 .logo {
-    text-align: left;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 12px 18px;
+    border-radius: 15px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo img {
-    width: 180px;
+    width: 130px;
     height: auto;
     object-fit: contain;
+    transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 8px 18px rgba(255, 170, 0, 0.4);
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.logo:active {
+    transform: scale(1.12);
 }
 
 nav a {
@@ -101,44 +133,47 @@ article h3 {
     color: darkgrey;
 }
 
-/* ===== Masonry Image Grid ===== */
 .books {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 10px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-auto-rows: 230px;
+    gap: 25px;
+    padding: 20px;
+
 }
+
 
 .im {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
+    height: 100%;
     object-fit: cover;
+    border-radius: 12px;
     display: block;
-    border-radius: 5px;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 
-/* --- Balanced Masonry Layout --- */
+.im:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
 .im1 {
-    grid-column: 1 / 6;
-    /* slightly wider */
+    grid-column: 1 / 4;
     grid-row: 1 / 3;
 }
 
 .im2 {
-    grid-column: 6 / 9;
+    grid-column: 4 / 8;
     grid-row: 1 / 2;
 }
 
 .im3 {
-    grid-column: 9 / 13;
-    grid-row: 1 / 4;
+    grid-column: 8 / 13;
+    grid-row: 1 / 3;
 }
 
 .im4 {
-    grid-column: 1 / 4;
+    grid-column: 1 / 3;
     grid-row: 3 / 5;
 }
 
@@ -148,47 +183,47 @@ article h3 {
 }
 
 .im6 {
-    grid-column: 8 / 10;
+    grid-column: 7 / 10;
     grid-row: 3 / 5;
 }
 
 .im7 {
     grid-column: 10 / 13;
-    grid-row: 4 / 6;
+    grid-row: 3 / 5;
 }
 
 .im8 {
-    grid-column: 1 / 4;
+    grid-column: 1 / 5;
     grid-row: 5 / 7;
 }
 
 .im9 {
-    grid-column: 4 / 7;
+    grid-column: 5 / 9;
     grid-row: 4 / 6;
 }
 
 .im10 {
-    grid-column: 7 / 10;
-    grid-row: 6 / 8;
+    grid-column: 9 / 13;
+    grid-row: 5 / 7;
 }
 
 .im11 {
-    grid-column: 10 / 13;
-    grid-row: 6 / 8;
-}
-
-.im12 {
-    grid-column: 1 / 5;
+    grid-column: 1 / 4;
     grid-row: 7 / 9;
 }
 
-.im13 {
-    grid-column: 5 / 9;
+.im12 {
+    grid-column: 4 / 8;
     grid-row: 6 / 8;
 }
 
+.im13 {
+    grid-column: 8 / 10;
+    grid-row: 7 / 9;
+}
+
 .im14 {
-    grid-column: 9 / 13;
+    grid-column: 10 / 13;
     grid-row: 8 / 10;
 }
 
@@ -227,8 +262,8 @@ article h3 {
 }
 
 article figure figcaption {
-    margin-top: 5px;
-    font-size: 12px;
+    margin-top: 6px;
+    font-size: 13px;
 }
 
 /* ===== Footer ===== */
@@ -256,19 +291,13 @@ body {
 
 
 nav {
-    display: flex;
+    background: #222;
+    border-bottom: 2px solid #ff9900;
     flex-direction: column;
     align-items: center;
-    background: #111;
     padding: 10px;
-    margin-top: 60px;
-    margin-bottom: 30px;
-}
-
-nav a {
-    color: white;
-    margin: 5px 0;
-    text-decoration: none;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .books {

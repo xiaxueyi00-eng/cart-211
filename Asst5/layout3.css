@@ -5,7 +5,14 @@ body {
     font-style: normal;
     padding: 0;
     margin: 0;
+    background: #f4f4f4;
+    color: #222;
 }
+
+.books figure {
+    border: 1px solid #ddd;
+}
+
 
 /* ===== Wrapper ===== */
 #wrapper {
@@ -109,6 +116,11 @@ footer a {
 section {
     margin-bottom: 30px;
     text-align: justify;
+}
+
+.social .fa:hover {
+    transform: scale(1.2);
+    color: #000;
 }
 
 /* ===== Masonry Gallery ===== */

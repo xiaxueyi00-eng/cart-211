@@ -72,7 +72,6 @@ nav {
     top: 25px;
     left: 25px;
     z-index: 3000;
-    background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(12px);
     padding: 10px 18px;
     border-radius: 18px;
@@ -95,17 +94,7 @@ nav {
     box-shadow: 0 8px 20px rgba(255, 170, 0, 0.35);
 }
 
-/* Hover image: lighten and pop out slightly */
-.logo img:hover {
-    transform: scale(1.12);
-    filter: brightness(1.2) drop-shadow(0 0 8px rgba(255, 200, 100, 0.6));
-}
 
-/* Active (on click): gentle press effect */
-.logo:active {
-    transform: scale(0.97);
-    background: rgba(255, 255, 255, 0.8);
-}
 
 nav a {
     text-decoration: none;
@@ -140,15 +129,22 @@ article h3 {
 
 /* ===== Masonry Image Grid (Fixed Version) ===== */
 .books {
-    column-count: 4;
-    column-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
 }
 
-.books img {
-    width: 100%;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    display: block;
+@media (max-width: 768px) {
+    .books {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .books {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
 }
 
 .im {
@@ -279,11 +275,15 @@ footer {
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 480px) {
-    nav {
-        background: #222;
-        border-bottom: 2px solid #ff9900;
+@media (max-width: 768px) {
+    .books {
+        grid-template-columns: repeat(6, 1fr);
     }
+}
+
+nav {
+    background: #222;
+    border-bottom: 2px solid #ff9900;
 }
 
 body {

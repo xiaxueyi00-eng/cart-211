@@ -10,7 +10,7 @@
 
     <!-- Meta Information -->
     <meta name="description"
-        content="Humans of New York Exercise – Explore the work of Ocean Vuong, award-winning poet and novelist, author of 'On Earth We’re Briefly Gorgeous'.">
+        content="Humans of New York Exercise - Explore the work of Ocean Vuong, award-winning poet and novelist, author of 'On Earth We’re Briefly Gorgeous'.">
     <meta property="og:title" content="Humans of New York Exercise">
     <meta property="og:description"
         content="Explore the work of Ocean Vuong, award-winning poet and novelist, author of 'On Earth We’re Briefly Gorgeous'.">
@@ -34,36 +34,80 @@
         <a href="about.html"><b>ABOUT</b></a><br>
     </nav>
 
-    <!-- Wrapper -->
-    <div id="wrapper">
+    <body>
+        <div id="wrapper">
 
-        <!-- Header -->
-        <header>
-            <img src="assets/Home.jpg" alt="Portrait of Ocean Vuong">
-            <h1>Ocean Vuong</h1>
-        </header>
+            <header>
+                <nav>
+                    <div class="logo">
+                        <a href="#">
+                            <img src="assets/logo.png" alt="Logo" width="110px" height="50px">
+                        </a>
+                    </div>
 
-        <!-- Main Content -->
-        <main>
-            <article class="solid">
-                <p>
-                    Ocean Vuong, born in 1988 in Ho Chi Minh City (Vietnam), is a Vietnamese American poet, novelist,
-                    and professor.
-                    He emigrated to the United States with his family in 1990 and grew up in Connecticut.
-                </p>
+                    <div class="menu1">
+                        <button class="close-menu">&times;</button>
+                        <a href="storie1.html" class="menu1">STORIES</a>
+                        <a href="#" class="menu1">SERIES</a>
+                        <a href="index.html" class="menu1_active">ABOUT</a>
+                    </div>
 
-                <p>
-                    Author of the critically acclaimed poetry collections *Night Sky with Exit Wounds* and *Time Is a
-                    Mother*,
-                    as well as the New York Times bestselling novel *On Earth We’re Briefly Gorgeous*,
-                    Vuong is a recipient of the T.S. Eliot Prize, the Whiting Award, and the MacArthur Fellowship.
-                    He has lived and worked in Northampton, Massachusetts, and New York City.
-                </p>
+                    <!-- Hamburger menu button for mobile version -->
+                    <div class="hamburger-menu">
+                        <button>
+                            <span class="fa fa-bars"></span>
+                        </button>
+                    </div>
+                </nav>
+            </header>
 
-                This website
-            </article>
-        </main>
+            <section>
+                <article>
+                    <h1>Humans of New York</h1>
+                </article>
+            </section>
+
+        </div>
+    </body>
+    <!-- Main Content -->
+    <main>
+        <article class="solid">
+            <p>
+                Ocean Vuong, born in 1988 in Ho Chi Minh City (Vietnam), is a Vietnamese American poet, novelist,
+                and professor.
+                He emigrated to the United States with his family in 1990 and grew up in Connecticut.
+            </p>
+
+            <p>
+                Author of the critically acclaimed poetry collections *Night Sky with Exit Wounds* and *Time Is a
+                Mother*,
+                as well as the New York Times bestselling novel *On Earth We’re Briefly Gorgeous*,
+                Vuong is a recipient of the T.S. Eliot Prize, the Whiting Award, and the MacArthur Fellowship.
+                He has lived and worked in Northampton, Massachusetts, and New York City.
+            </p>
+
+            This website
+        </article>
+    </main>
     </div>
 </body>
 
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburgerButton = document.querySelector('.hamburger-menu button');
+        const closeButton = document.querySelector('.close-menu');
+        const menu1 = document.querySelector('.menu1');
+
+        // Gestion de l'ouverture du menu
+        hamburgerButton.addEventListener('click', () => {
+            menu1.classList.add('menu-deployed');
+        });
+
+        // Gestion de la fermeture du menu
+        closeButton.addEventListener('click', () => {
+            menu1.classList.remove('menu-deployed');
+        });
+    });
+</script>

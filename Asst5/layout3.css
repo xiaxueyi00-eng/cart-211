@@ -1,208 +1,175 @@
-/* ===== Base Styles ===== */
+/* ===== Base ===== */
 body {
-    font-family: "Marmelad", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    padding: 0;
     margin: 0;
-    background: #f4f4f4;
-    color: #222;
-}
-
-.books figure {
-    border: 1px solid #ddd;
-}
-
-
-/* ===== Wrapper ===== */
-#wrapper {
-    margin-top: 10px;
-    width: 90%;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-/* ===== Header Styles ===== */
-header h1 {
-    text-align: right;
-    font-size: 25px;
-    margin-bottom: 5px;
-    color: brown;
-}
-
-header h2 {
-    margin-top: 0;
-    margin-bottom: 30px;
-    text-align: right;
-    font-size: 28px;
-    color: darkgrey;
-}
-
-header h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: darkgray;
-}
-
-/* ===== Logo Image ===== */
-header img {
-    margin-top: 50px;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+    padding: 0;
+    font-family: "Marmelad", sans-serif;
+    background-color: #0d0d0d;
+    color: #f5f5f5;
+    overflow-x: hidden;
 }
 
 /* ===== Navigation ===== */
 nav {
-    margin-top: 100px;
-    line-height: 30px;
-    display: grid;
-    grid-template-columns: 60% 1fr;
-}
-
-.menu {
     display: flex;
-    background: white;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-}
-
-/* ===== Floating Logo ===== */
-.logo {
-    position: fixed;
-    top: 15px;
-    right: 25px;
-    z-index: 2000;
-    padding: 10px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgb(237, 221, 0);
-    transition: transform 0.3s ease, background 0.3s ease;
+    padding: 18px 40px;
+    background: rgba(0, 0, 0, 0.85);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo img {
-    width: 120px;
+    width: 160px;
     height: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+    filter: brightness(1.2);
 }
 
-.logo:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.8);
+/* ===== Desktop Menu ===== */
+.menu-desktop {
+    display: flex;
+    gap: 40px;
 }
 
-.logo:active {
-    transform: scale(1.1);
-}
-
-/* ===== Navigation Links ===== */
-nav a {
+.menu-desktop a {
     text-decoration: none;
-    color: black;
+    color: #f5f5f5;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.menu-desktop a:hover {
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+}
+
+/* ===== Hamburger (Mobile Only) ===== */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger-menu div {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* ===== Overlay Menu ===== */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #d7e1ec, #89a5ff);
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.menu-overlay.active {
+    display: flex;
+}
+
+.menu-overlay a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 26px;
+    margin: 20px;
     font-weight: bold;
+    transition: transform 0.3s, color 0.3s;
 }
 
-nav a:hover {
-    color: darkgrey;
-}
-
-/* ===== Footer Links ===== */
-footer a {
-    text-decoration: none;
-    color: black;
-}
-
-/* ===== Main Section ===== */
-section {
-    margin-bottom: 30px;
-    text-align: justify;
-}
-
-.social .fa:hover {
+.menu-overlay a:hover {
     transform: scale(1.2);
-    color: #000;
+    color: #00ffff;
 }
 
-/* ===== Masonry Gallery ===== */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 36px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
 .books {
-    column-count: 4;
+    column-count: 3;
     column-gap: 20px;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 60px 0;
+    animation: floatIn 1.2s ease-out forwards;
 }
 
 .books figure {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 20px;
     break-inside: avoid;
-    margin-bottom: 20px;
-    border-radius: 15px;
     overflow: hidden;
-    position: relative;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.books figure:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .books img {
     width: 100%;
     display: block;
-    border-radius: 10px;
-    object-fit: cover;
-    transition: transform 0.4s ease, filter 0.4s ease;
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
 .books figure:hover img {
-    transform: scale(1.05);
-    filter: brightness(0.8);
+    transform: scale(1.04);
 }
 
-.books figcaption {
+/* Hover text */
+.hover-text {
     position: absolute;
-    bottom: 8px;
-    left: 8px;
-    right: 8px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
     background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    font-size: 0.9rem;
-    padding: 5px;
-    border-radius: 6px;
-    text-align: center;
-    transition: opacity 0.3s ease;
-}
-
-.books figure:hover figcaption {
+    color: white;
+    font-size: 14px;
     opacity: 0;
+    transition: opacity 0.3s;
 }
 
-/* ===== Social Icons ===== */
-.social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
-    color: grey;
-    flex-wrap: wrap;
+.books figure:hover .hover-text {
+    opacity: 1;
 }
 
-.social .fa {
-    font-size: 2.2em;
-    padding: 10px;
-    color: gray;
-    transition: transform 0.3s ease, color 0.3s ease;
+/* Entry animation */
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* ===== Footer ===== */
-footer {
-    text-align: center;
-    margin-top: 50px;
-    padding: 20px;
-    color: #555;
-    font-size: 0.9rem;
-}
-
-/* ===== Responsive Design ===== */
 @media (max-width: 768px) {
     .books {
         column-count: 2;
-        column-gap: 15px;
     }
 }
 
@@ -210,42 +177,128 @@ footer {
     .books {
         column-count: 1;
     }
+}
 
-    nav {
-        margin: 0 auto;
-        margin-bottom: 50px;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 10px 0;
-        line-height: 30px;
-        position: relative;
+/* Grid Layout */
+.im1 {
+    grid-column: 1/7;
+    grid-row: 1/4
+}
+
+.im2 {
+    grid-column: 7/10;
+    grid-row: 1/2
+}
+
+.im3 {
+    grid-column: 7/10;
+    grid-row: 2/4
+}
+
+.im4 {
+    grid-column: 10/13;
+    grid-row: 1/3
+}
+
+.im5 {
+    grid-column: 1/4;
+    grid-row: 4/6
+}
+
+.im6 {
+    grid-column: 4/7;
+    grid-row: 4/6
+}
+
+.im7 {
+    grid-column: 7/10;
+    grid-row: 4/6
+}
+
+.im8 {
+    grid-column: 10/13;
+    grid-row: 3/5
+}
+
+.im9 {
+    grid-column: 1/4;
+    grid-row: 6/8
+}
+
+.im10 {
+    grid-column: 4/7;
+    grid-row: 6/8
+}
+
+.im11 {
+    grid-column: 7/10;
+    grid-row: 6/8
+}
+
+.im12 {
+    grid-column: 10/13;
+    grid-row: 5/7
+}
+
+.im13 {
+    grid-column: 1/7;
+    grid-row: 8/10
+}
+
+.im14 {
+    grid-column: 7/13;
+    grid-row: 8/10
+}
+
+/* ===== Social ===== */
+.social {
+    background: #000;
+    color: #aaa;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.social h4 {
+    color: #00ffff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.social .fa {
+    font-size: 28px;
+    margin: 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social .fa:hover {
+    color: #00ffff;
+    transform: scale(1.2);
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    padding: 25px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 780px) {
+    .menu-desktop {
+        display: none;
+    }
+
+    .hamburger-menu {
         display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-wrap: wrap;
-        background: #000;
-        border-bottom: 4px solid #000;
-        z-index: 1000;
-        color: white;
     }
 
-    nav a {
-        color: white;
+    .books {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    h1 {
-        margin-top: 50px;
-    }
-
-    #wrapper {
-        margin-top: 50px;
-        position: relative;
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    footer {
-        margin-top: 40px;
-        font-size: 12px;
+    .books [class^="im"] {
+        grid-column: auto !important;
+        grid-row: auto !important;
     }
 }

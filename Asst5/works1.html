@@ -8,18 +8,14 @@
 
     <title>Humans of New York – Xueyi Xia</title>
 
-    <meta name="description"
-        content="Explore the work of Ocean Vuong, award-winning poet and novelist, author of 'On Earth We’re Briefly Gorgeous' and 'Time Is a Mother'.">
-    <meta property="og:title" content="Ocean Vuong">
+    <meta name="description" content="Humans of New York – A photography storytelling project reimagined by Xueyi Xia.">
+    <meta property="og:title" content="Humans of New York">
     <meta property="og:description"
-        content="Explore the work of Ocean Vuong, award-winning poet and novelist, author of 'On Earth We’re Briefly Gorgeous' and 'Time Is a Mother'.">
+        content="Humans of New York – A photography storytelling project reimagined by Xueyi Xia.">
     <meta name="author" content="Xueyi Xia">
-    <meta name="copyright" content="Copyright Xueyi Xia, Student Project 2025">
+    <meta name="copyright" content="© Xueyi Xia, Student Project 2025">
 
     <link rel="stylesheet" href="layout1.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marmelad&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -57,21 +53,22 @@
                 <article>
                     <h1>Humans of New York</h1>
 
-                    <p>Humans of New York began as Brandon Stanton photography project in 2010. The initial goal was to
-                        photograph 10,000 New
-                        Yorkers on the street, and create an exhaustive catalogue of the city’s inhabitants.
+                    <p>
+                        Humans of New York began as Brandon Stanton’s photography project in 2010.
+                        The initial goal was to photograph 10,000 New Yorkers on the street, and create
+                        an exhaustive catalogue of the city’s inhabitants.
+                    </p>
 
-                        Taken together, these portraits and captions became the subject of a vibrant blog. HONY now has
-                        over twenty million
-                        followers on social media, and provides a worldwide audience with daily glimpses into the lives
-                        of strangers on the
-                        streets of New York City.
+                    <p>
+                        Taken together, these portraits and captions became the subject of a vibrant blog.
+                        HONY now has over twenty million followers on social media, and provides a worldwide audience
+                        with daily glimpses into the lives of strangers on the streets of New York City.
                     </p>
 
                     <hr class="solid">
 
                     <div class="books">
-
+                        <!-- 14 Images -->
                         <figure class="im1">
                             <a href="projet1.html">
                                 <img src="assets/america_pageant.jpg" class="im" alt="America Pageant">
@@ -170,8 +167,10 @@
                             <div class="hover-text">tough morning</div>
                         </figure>
                     </div>
+                </article>
+            </section>
         </main>
-        <!-- Footer -->
+
         <footer>
             <div class="social">
                 <h4>Social Media Icons</h4>
@@ -190,24 +189,22 @@
             </small>
         </footer>
     </div>
-</body>
 
-</html>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const hamburger = document.querySelector('.hamburger-menu button');
-        const closeBtn = document.querySelector('.close-menu');
-        const overlay = document.querySelector('.menu-overlay');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger-menu button');
+            const closeBtn = document.querySelector('.close-menu');
+            const overlay = document.querySelector('.menu-overlay');
 
-        hamburger.addEventListener('click', () => {
-            overlay.classList.add('active');
+            hamburger.addEventListener('click', () => {
+                overlay.classList.add('active');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                overlay.classList.remove('active');
+            });
         });
-
-        closeBtn.addEventListener('click', () => {
-            overlay.classList.remove('active');
-        });
-    });
-</script>
+    </script>
 </body>
 
 </html>

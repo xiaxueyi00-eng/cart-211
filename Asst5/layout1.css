@@ -118,7 +118,7 @@ nav {
     }
 }
 
-/* Grid positions */
+
 .im1 {
     grid-column: 1/7;
     grid-row: 1/4
@@ -302,7 +302,7 @@ nav {
     }
 }
 
-@media (min-width: 781px) {
+@media (min-width: 780px) {
     .menu-overlay {
         display: none !important;
     }

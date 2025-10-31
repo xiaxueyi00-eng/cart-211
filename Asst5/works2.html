@@ -4,17 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/favicon.ico">
+
     <title>Humans of New York – Xueyi Xia</title>
 
-    <!-- Meta -->
-    <meta name="description" content="Humans of New York – Reimagined by Xueyi Xia">
+    <meta name="description"
+        content="Explore the work of Ocean Vuong, award-winning poet and novelist, author of 'On Earth We’re Briefly Gorgeous' and 'Time Is a Mother'.">
+    <meta property="og:title" content="Ocean Vuong">
+    <meta property="og:description"
+        content="Explore the work of Ocean Vuong, award-winning poet and novelist, author of 'On Earth We’re Briefly Gorgeous' and 'Time Is a Mother'.">
     <meta name="author" content="Xueyi Xia">
-    <meta name="copyright" content="© Xueyi Xia 2025">
+    <meta name="copyright" content="Copyright Xueyi Xia, Student Project 2025">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="layout2.css">
 
-    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marmelad&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -22,28 +27,24 @@
 <body>
     <div id="wrapper">
 
-        <!-- ===== Navigation ===== -->
         <nav>
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/logo.png" alt="Humans of New York Logo">
+                    <img src="assets/logo.png" alt="Humans of New York logo">
                 </a>
             </div>
 
-            <!-- Desktop Menu -->
             <div class="menu-desktop">
                 <a href="index.html">INDEX</a>
                 <a href="bio.html">STORIES</a>
                 <a href="works.html">ABOUT</a>
             </div>
 
-            <!-- Mobile Hamburger -->
             <div class="hamburger-menu">
-                <i class="fa fa-bars"></i>
+                <button><i class="fa fa-bars"></i></button>
             </div>
         </nav>
 
-        <!-- Mobile Menu Overlay -->
         <div class="menu-overlay">
             <button class="close-menu">&times;</button>
             <a href="index.html">INDEX</a>
@@ -51,23 +52,17 @@
             <a href="works.html">ABOUT</a>
         </div>
 
-        <!-- ===== Main Section ===== -->
         <main>
             <section>
                 <article>
                     <h1>Humans of New York</h1>
 
-                    <p>
-                        Humans of New York began as Brandon Stanton’s photography project in 2010. The initial goal was
-                        to photograph 10,000 New Yorkers and create a visual catalogue of the city’s diversity.
-                    </p>
+                    <p>Humans of New York began as Brandon Stanton’s photography project in 2010...</p>
 
-                    <p>
-                        Over time, it became a storytelling platform connecting millions through images and narratives.
-                        This project reimagines that experience through creative web design and visual interpretation.
-                    </p>
+                    <p>Taken together, these portraits and captions became the subject of a vibrant blog...</p>
 
                     <hr class="solid">
+
                     <div class="books">
 
                         <figure class="im1">
@@ -121,10 +116,11 @@
 
                         <figure class="im8">
                             <a href="projet1.html">
-                                <img src="assets/Right_and_wrong.jpg" alt="Right and Wrong">
+                                <img src="assets/right_and_wrong.jpg" alt="Right and Wrong">
                             </a>
                             <div class="hover-text">right and wrong</div>
                         </figure>
+
                         <figure class="im9">
                             <a href="projet1.html">
                                 <img src="assets/sketchbook.jpg" class="im" alt="Sketchbook">
@@ -145,6 +141,7 @@
                             </a>
                             <div class="hover-text">the empire</div>
                         </figure>
+
                         <figure class="im12">
                             <a href="projet1.html">
                                 <img src="assets/Mardi-Gras.jpg" class="im" alt="Mardi Gras">
@@ -166,42 +163,44 @@
                             <div class="hover-text">tough morning</div>
                         </figure>
                     </div>
-                </article>
-            </section>
         </main>
-
-        <!-- ===== Footer ===== -->
+        <!-- Footer -->
         <footer>
             <div class="social">
-                <h4>Follow Humans of New York</h4>
+                <h4>Social Media Icons</h4>
                 <div class="wrap">
                     <a href="#" class="fa fa-facebook"></a>
                     <a href="#" class="fa fa-twitter"></a>
                     <a href="#" class="fa fa-youtube"></a>
                     <a href="#" class="fa fa-instagram"></a>
                     <a href="#" class="fa fa-pinterest"></a>
+                    <a href="#" class="fa fa-snapchat-ghost"></a>
                 </div>
             </div>
-            <small>© 2025 Xueyi Xia — Student Project</small>
+            <small>
+                This website was created as part of a school project.
+                All content and design are copyright © Xueyi Xia, 2025.
+            </small>
         </footer>
     </div>
+</body>
 
-    <!-- ===== JS ===== -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.querySelector('.hamburger-menu');
-            const overlay = document.querySelector('.menu-overlay');
-            const closeBtn = document.querySelector('.close-menu');
+</html>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.querySelector('.hamburger-menu button');
+        const closeBtn = document.querySelector('.close-menu');
+        const overlay = document.querySelector('.menu-overlay');
 
-            hamburger.addEventListener('click', () => {
-                overlay.classList.add('active');
-            });
-
-            closeBtn.addEventListener('click', () => {
-                overlay.classList.remove('active');
-            });
+        hamburger.addEventListener('click', () => {
+            overlay.classList.add('active');
         });
-    </script>
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.remove('active');
+        });
+    });
+</script>
 </body>
 
 </html>

@@ -7,25 +7,235 @@ body {
     color: #111;
 }
 
+.shadow-text {
+  position: relative;
+  display: inline-block;
+}
 
-header, .hero {
+.shadow-text::after {
+  content: attr(data-shadow);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(26px, 38px) scale(1.15);
+  color: rgba(0,0,0,0.14);
+  filter: blur(26px);
+  pointer-events: none;
+}
+.hero {
+  position: relative;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/depositphotos_7906610-stock-photo-shadowy-figure-trapped-behind-glass-2.jpg") center/60% no-repeat;
+  opacity: 0.18;
+  filter: blur(28px);
+  z-index: -1;
 }
 
+.hero::before {
+  animation: shadowFloat 11s ease-in-out infinite;
+}
 
+@keyframes shadowFloat {
+  0%, 100% {
+    transform: scale(1.45) translateY(0);
+    opacity: 0.22;
+  }
+  50% {
+    transform: scale(1.52) translateY(-2vh);
+    opacity: 0.27;
+  }
+}
 .title {
-  font-size: 3rem;
-  letter-spacing: -0.02em;
-  margin-top: 15vh;
+  font-size: 3.4rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+  font-weight: 400;
 }
-
 .tagline {
   color: #a9a9b2;
   max-width: 600px;
   margin-top: 2rem;
   line-height: 1.7;
   font-size: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+nav {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  display: flex;
+  gap: 24px;
+  font-size: 0.9rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #111;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+header {
+  position: relative;
+  z-index: 1000;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* LIKE page layout */
+
+  .gallery-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  margin-top: 50px;
+}
+
+.pic {
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.small {
+  width: 160px;
+  height: auto;
+  opacity: 0.85;
+}
+
+.main {
+  width: 200px;
+  height: auto;
+}
+
+.like-group {
+  position: relative;
+  display: inline-block;
+}
+
+.like-group .heart {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 56px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.like-group .heart:active {
+  transform: translate(-50%, -50%) scale(1.25);
+}
+.stack {
+  position: relative;
+  width: fit-content;
+  margin: 60px auto;
+}
+
+.base-img {
+  width: 300px;
+  border-radius: 12px;
+}
+
+.top-img {
+  position: absolute;
+  width: 180px;
+  top: 12%;
+  left: 12%;
+  border-radius: 10px;
+  opacity: 0.9;
+  transition: 0.25s;
+}
+
+.stack .heart {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 58px;
+  cursor: pointer;
+  transition: transform 0.25s;
+}
+
+.stack .heart:active {
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+.like-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 120px;
+}
+
+
+.base-img {
+  width: 1000px;
+  border-radius: 18px;
+}
+
+
+.top-img {
+  position: absolute;
+  width: 180px;
+  top: 18%;
+  left: 52%;
+  border-radius: 14px;
+  opacity: 0.92;
+}
+
+
+.stack {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+
+.stack .heart {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 90px;
+  cursor: pointer;
+  transition: transform 0.25s;
+}
+
+.stack .heart:active {
+  transform: translate(-50%, -50%) scale(1.22);
+}
+
+
+.info {
+  margin-top: 36px;
+  max-width: 600px;
+  line-height: 1.7;
+  opacity: 0.7;
+}
+
+.counter {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  opacity: 0.75;
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LIKE</title>
+  <link rel="stylesheet" href="default.css">
+</head>
+
+<body class="like-page">
+
+<header>
+  <nav>
+    <a href="index.html">INDEX</a>
+    <a href="liking.html">LIKE</a>
+    <a href="searching.html">SEARCH</a>
+    <a href="scrolling.html">SCROLL</a>
+  </nav>
+</header>
+
+<section>
+
+<section class="like-page">
+
+  <h1 class="title">LIKE</h1>
+
+  <div class="stack">
+    <img src="assets/ins.avif" class="base-img" alt="">
+    <img src="assets/ins picture 1.jpg" class="top-img" alt="">
+    <div class="heart">❤️</div>
+  </div>
+
+  <p class="info">
+    Every like is a data point.<br>
+    We think we are choosing.<br>
+    But what if we are the ones being shaped?
+  </p>
+
+  <div class="counter">Data Collected: 000</div>
+
+
+</section>
+
+<script>
+let count = 0;
+const heart = document.querySelector(".stack .heart"); // ← ✅ 修正选择器
+const counter = document.querySelector(".counter");
+
+heart.addEventListener("click", () => {
+  count++;
+  counter.textContent = `Data Collected: ${String(count).padStart(3, '0')}`;
+
+  heart.style.transform = "translate(-50%, -50%) scale(1.35)";
+  counter.classList.add("changed");
+
+  setTimeout(() => {
+    heart.style.transform = "translate(-50%, -50%) scale(1)";
+    counter.classList.remove("changed");
+  }, 200);
+});
+</script>
+
+</body>
+</html>

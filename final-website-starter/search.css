@@ -1,0 +1,107 @@
+body.search-page {
+  background: #fff;
+  color: #111;
+  font-family: "Inter", Helvetica, Arial, sans-serif;
+}
+
+/* Navigation */
+header nav {
+  display: flex;
+  gap: 16px;
+  padding: 18px 24px;
+  opacity: 0.9;
+}
+header nav a {
+  text-decoration: none;
+  color: #111;
+  opacity: 0.7;
+}
+header nav a:hover {
+  opacity: 1;
+}
+
+/* Matrix Background */
+#matrix-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* Layout */
+.search-wrap {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding: 10vh 16px 8vh;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 200;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  opacity: 0.55;
+  margin-bottom: 36px;
+}
+
+/* Search bar */
+.search-box {
+  width: min(720px, 90vw);
+  display: flex;
+  align-items: center;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 18px 20px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+}
+
+.search-icon {
+  opacity: 0.6;
+}
+
+.typing {
+  flex: 1;
+  font-size: 1.05rem;
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+/* Caret */
+.caret {
+  width: 8px;
+  background: #111;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Log */
+.log {
+  width: min(720px, 90vw);
+  margin-top: 22px;
+  display: grid;
+  gap: 10px;
+}
+.log-item {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  animation: fade-in 0.4s ease forwards;
+}
+@keyframes fade-in {
+  from {opacity: 0; transform: translateY(6px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.footnote {
+  margin-top: 36px;
+  font-size: 0.8rem;
+  opacity: 0.45;
+}
+
+.spacer { height: 10vh; }

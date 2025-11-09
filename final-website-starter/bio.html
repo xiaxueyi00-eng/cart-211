@@ -7,7 +7,9 @@
 </head>
 
 <body class="like-page">
-
+<div class="popup" id="popup">
+  <img class="popup-img" id="popup-img">
+</div>
 <header>
   <nav>
     <a href="index.html">INDEX</a>
@@ -25,7 +27,6 @@
 
   <div class="stack">
     <img src="assets/ins.avif" class="base-img" alt="">
-    <img src="assets/ins picture 1.jpg" class="top-img" alt="">
     <div class="heart">❤️</div>
   </div>
 
@@ -39,25 +40,53 @@
 
 
 </section>
-
 <script>
 let count = 0;
-const heart = document.querySelector(".stack .heart"); // ← ✅ 修正选择器
+
+
+const heart = document.querySelector(".stack .heart");
 const counter = document.querySelector(".counter");
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popup-img");
+
+
+const images = [
+  "assets/images-1.jpeg",
+  "assets/images-2.jpeg",
+  "assets/images-3.jpeg",
+  "assets/images-4.jpeg",
+  "assets/image-5.avif",
+  "assets/image-6.jpg",
+  "assets/images-7.jpeg",
+  "assets/images-8.jpeg",
+  "assets/images-9.jpeg",
+  "assets/images-10.jpeg",
+  "assets/images-11.jpeg",
+  "assets/images-12.jpeg",
+];
+
+
+let index = 0;
 
 heart.addEventListener("click", () => {
+
   count++;
   counter.textContent = `Data Collected: ${String(count).padStart(3, '0')}`;
 
-  heart.style.transform = "translate(-50%, -50%) scale(1.35)";
-  counter.classList.add("changed");
+  popupImg.src = images[index];
+  popup.classList.add("show");
 
-  setTimeout(() => {
-    heart.style.transform = "translate(-50%, -50%) scale(1)";
-    counter.classList.remove("changed");
-  }, 200);
+
+  if (index === images.length - 1) {
+    counter.textContent = "Thanks for sharing yourself :)";
+  }
+
+
+  index = (index + 1) % images.length;
+});
+
+
+popup.addEventListener("click", () => {
+  popup.classList.remove("show");
 });
 </script>
-
-</body>
-</html>

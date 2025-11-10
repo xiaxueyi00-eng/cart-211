@@ -13,7 +13,6 @@
     <a href="index.html">INDEX</a>
     <a href="bio.html">LIKE</a>
     <a href="searching.html">SEARCH</a>
-    <a href="scrolling.html">SCROLL</a>
   </nav>
 </header>
 
@@ -29,7 +28,19 @@
 <div id="results"></div>
 </main>
 
-<script src="scripts/search.js"></script>
+<script>
+  const input = document.getElementById("searchInput");
+  const results = document.getElementById("results");
+
+  input.addEventListener("input", () => {
+    const value = input.value.trim();
+    if (!value) {
+      results.textContent = "";
+      return;
+    }
+    results.textContent = `"${value}" has been recorded for system improvement.`;
+  });
+</script>
 
 </body>
 

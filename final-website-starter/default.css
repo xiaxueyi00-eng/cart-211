@@ -92,9 +92,9 @@ header {
   z-index: 1;
 }
 @keyframes bgSlide {
-  0%   { transform: translateX(-150px); }
-  50%  { transform: translateX(150px); }
-  100% { transform: translateX(-150px); }
+  0%   { transform: translateX(-180px); }
+  50%  { transform: translateX(180px); }
+  100% { transform: translateX(-180px); }
 }
 /* LIKE page layout */
 
@@ -364,4 +364,110 @@ header {
   margin-top: 6px;
   font-size: 14px;
   line-height: 1.5;
+}
+
+/* Whole page */
+.tracking-page {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: #0e0e0e;
+  color: white;
+  animation: darken 6s ease forwards;
+}
+
+/* Background darkening effect */
+@keyframes darken {
+  0% { background: #222; }
+  100% { background: #000; }
+}
+
+/* Title */
+.track-title {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 3rem;
+  letter-spacing: 0.15em;
+  opacity: 0.9;
+}
+
+.track-desc {
+  text-align: center;
+  opacity: 0.55;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+/* Canvas (for tracking lines) */
+#trackCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+/* floating dots container */
+#data-points {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Each dot */
+.dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #59c9ff;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: blink 3s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0% { opacity: 0.1; transform: scale(0.8); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+  100% { opacity: 0.1; transform: scale(0.8); }
+}
+/* Make navigation white only on tracking page */
+.tracking-page nav a {
+  color: #fff !important;
+  opacity: 0.75;
+}
+
+.tracking-page nav a:hover {
+  opacity: 1;
+}
+
+/* ===== SCANLINE SWEEP EFFECT ===== */
+
+.scanline {
+  position: fixed;
+  top: -120px;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+     rgba(255,255,255,0.35) 45%,
+    rgba(255,255,255,0.25) 55%,
+    transparent 100%
+  );
+
+  filter: blur(8px);
+  opacity: 0.65;
+  animation: sweep 4.5s linear infinite;
+  z-index: 5;
+}
+
+@keyframes sweep {
+  0% {
+    top: -150px;
+  }
+  100% {
+    top: 100vh;
+  }
 }

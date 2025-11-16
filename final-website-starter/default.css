@@ -490,3 +490,72 @@ header {
 .tracking-page.scanning .track-hint {
   opacity: 1;
 }
+
+.recommend-page {
+  height: 100vh;
+  background: #0f0f0f;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.rec-title {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.12em;
+}
+
+.rec-sub {
+  opacity: 0.5;
+  margin-bottom: 40px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.rec-box {
+  background: rgba(255,255,255,0.06);
+  padding: 30px 40px;
+  border-radius: 18px;
+  backdrop-filter: blur(16px);
+  text-align: center;
+  width: 420px;
+  box-shadow: 0 10px 40px rgba(255,255,255,0.1);
+  animation: glow 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 18px rgba(255,255,255,0.06); }
+  50% { box-shadow: 0 0 28px rgba(255,255,255,0.14); }
+  100% { box-shadow: 0 0 18px rgba(255,255,255,0.06); }
+}
+
+.rec-tag {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  opacity: 0.55;
+  margin-bottom: 12px;
+  letter-spacing: 0.15em;
+}
+
+.rec-content {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.rec-reason {
+  font-size: 0.8rem;
+  opacity: 0.55;
+}
+/* Make navigation white only on recommendation page */
+.recommend-page nav a {
+  color: #fff !important;
+  opacity: 0.75;
+}
+
+.tracking-page nav a:hover {
+  opacity: 1;
+}

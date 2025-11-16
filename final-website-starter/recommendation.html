@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RECOMMENDATION</title>
+  <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="recommend.css">
+</head>
+
+<body class="recommend-page">
+
+<header>
+  <nav>
+    <a href="index.html">INDEX</a>
+    <a href="bio.html">LIKE</a>
+    <a href="searching.html">SEARCH</a>
+    <a href="scrolling.html">SCROLLING</a>
+    <a href="tracking.html">TRACKING</a>
+    <a href="recommendation.html" class="active">RECOMMENDATION</a>
+  </nav>
+</header>
+
+<h1 class="rec-title">RECOMMENDATION</h1>
+<p class="rec-sub">You are not choosing. The system is choosing for you.</p>
+
+<div class="rec-box" id="recBox">
+  <h2 class="rec-tag">You might be interested in</h2>
+  <p class="rec-content" id="recContent"></p>
+  <p class="rec-reason" id="recReason"></p>
+</div>
+
+<script src="recommend.js"></script>
+<main>
+  <script>
+    const items = [
+      {
+        content: "Cute dogs compilation",
+        reason: "because you paused 4.2s on similar videos."
+      },
+      {
+    content: "Study with me — 1 hour focus session",
+    reason: "because you watched productivity content."
+  },
+  {
+    content: "Skincare hacks 2025",
+    reason: "because users similar to you also liked this."
+  },
+  {
+    content: "Weekend brunch spots",
+    reason: "because you liked 'food photography'."
+  },
+  {
+    content: "Travel vlog: Japan Autumn",
+    reason: "because your search keywords match this content."
+  }
+];
+
+let index = 0;
+
+function updateRecommendation() {
+  const rec = items[index];
+  document.getElementById("recContent").textContent = rec.content;
+  document.getElementById("recReason").textContent = rec.reason;
+
+  index = (index + 1) % items.length;
+}
+
+updateRecommendation();
+setInterval(updateRecommendation, 2000);
+
+  </script>
+</main>
+
+</html>

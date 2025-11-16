@@ -1,5 +1,5 @@
-/*PAG ONE*/
-
+/* PAGE ONE : INDEX (Hero Page)
+----------------------------------------*/
 body {
     font-family: "Marmelad", sans-serif;
     margin: 0;
@@ -97,8 +97,8 @@ header {
   50%  { transform: translateX(160px); }
   100% { transform: translateX(-160px); }
 }
-/*PAGE TWO*/
-/* LIKE page layout */
+/* PAGE TWO : LIKE PAGE
+----------------------------------------*/
 
 .like-page {
   min-height: 100vh;
@@ -260,7 +260,8 @@ header {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/*Page 3 : SEARCH CSS*/
+/* PAGE THREE : SEARCH PAGE
+----------------------------------------*/
 .search-page {
   font-family: "Inter", sans-serif;
   background: #fff;
@@ -358,7 +359,8 @@ header {
   opacity: 0.8;
 }
 
-/* ===== SCROLLING page 4===== */
+/* PAGE FOUR : SCROLLING PAGE
+----------------------------------------*/
 
 .scroll-page {
   min-height: 100vh;
@@ -409,7 +411,10 @@ header {
   line-height: 1.5;
 }
 
-/* Whole page */
+
+/* PAGE FIVE : TRACKING PAGE
+----------------------------------------*/
+
 .tracking-page {
   margin: 0;
   height: 100vh;
@@ -483,7 +488,7 @@ header {
   opacity: 1;
 }
 
-/* ===== SCANLINE SWEEP EFFECT  PAGE 5===== */
+/* ===== SCANLINE SWEEP EFFECT ===== */
 
 .scanline {
   position: fixed;
@@ -533,6 +538,11 @@ header {
 .tracking-page.scanning .track-hint {
   opacity: 1;
 }
+/* END OF PAGE 5 */
+
+
+/* PAGE SIX : RECOMMENDATION PAGE
+----------------------------------------*/
 
 .recommend-page {
   height: 100vh;
@@ -602,3 +612,4 @@ header {
 .tracking-page nav a:hover {
   opacity: 1;
 }
+/* END OF PAGE 6 */

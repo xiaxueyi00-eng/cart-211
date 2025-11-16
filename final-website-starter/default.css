@@ -275,23 +275,34 @@ header {
   text-align: center;
   flex-direction: column;
 }
+
 .search-bg {
   position: fixed;
   inset: 0;
   background: repeating-linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.20) 0px,
-    rgba(0, 0, 0, 0.20) 1px,
+    rgba(0,0,0,0.15) 0px,
+    rgba(0,0,0,0.15) 1px,
     transparent 1px,
     transparent 40px
   );
   mask-image: linear-gradient(to bottom, transparent, black, transparent);
   animation: scanMove 18s linear infinite;
+  opacity: 0.25;
+  transition: opacity 0.25s ease;
   z-index: -1;
 }
-@keyframes scanMove {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-300px); }
+
+.search-page.typing .search-bg {
+  opacity: 0.9;
+  filter: brightness(1.9);
+  transform: scaleY(1.2);
+}
+
+@keyframes typingFlash {
+  0%   { filter: brightness(1.5) blur(0px); }
+  50%  { filter: brightness(2.5) blur(1px); }
+  100% { filter: brightness(1.5) blur(0px); }
 }
 .search-box {
   width: min(950px, 90vw);
@@ -358,6 +369,7 @@ header {
 .suggest li:last-child {
   opacity: 0.8;
 }
+
 
 /* PAGE FOUR : SCROLLING PAGE
 ----------------------------------------*/

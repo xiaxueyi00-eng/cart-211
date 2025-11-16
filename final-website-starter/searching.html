@@ -44,6 +44,7 @@
   const input = document.getElementById("searchInput");
   const results = document.getElementById("results");
 
+
   input.addEventListener("input", () => {
     const value = input.value.trim();
     if (!value) {
@@ -54,6 +55,10 @@
       "${value}" has been recorded for system improvement.<br>
       <span class="sys-note">System is learning your preferences…</span>
     `;
+    document.body.classList.add("typing");
+    setTimeout(() => {
+      document.body.classList.remove("typing");
+    }, 250);
   });
 </script>
 

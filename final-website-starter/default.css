@@ -1,3 +1,4 @@
+/*PAG ONE*/
 
 body {
     font-family: "Marmelad", sans-serif;
@@ -96,6 +97,7 @@ header {
   50%  { transform: translateX(160px); }
   100% { transform: translateX(-160px); }
 }
+/*PAGE TWO*/
 /* LIKE page layout */
 
 .like-page {
@@ -257,7 +259,8 @@ header {
   backdrop-filter: blur(3px);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-/*Page : SEARCH CSS*/
+
+/*Page 3 : SEARCH CSS*/
 .search-page {
   font-family: "Inter", sans-serif;
   background: #fff;
@@ -271,7 +274,24 @@ header {
   text-align: center;
   flex-direction: column;
 }
-
+.search-bg {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.20) 0px,
+    rgba(0, 0, 0, 0.20) 1px,
+    transparent 1px,
+    transparent 40px
+  );
+  mask-image: linear-gradient(to bottom, transparent, black, transparent);
+  animation: scanMove 18s linear infinite;
+  z-index: -1;
+}
+@keyframes scanMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-300px); }
+}
 .search-box {
   width: min(950px, 90vw);
   height: 68px;
@@ -313,9 +333,32 @@ header {
   color: #555;
   text-align: center;
 }
+.sys-note {
+  opacity: 0.6;
+  font-size: 14px;
+}
+.suggest {
+  list-style: none;
+  margin-top: 25px;
+  padding: 0;
+  font-size: 14px;
+  opacity: 0.65;
+  color: #555;
+  line-height: 1.5;
+  text-align: center;
+}
 
+.suggest li:nth-child(4) {
+  margin-top: 10px;
+  font-weight: 600;
+  opacity: 0.8;
+}
 
-/* ===== SCROLLING page ===== */
+.suggest li:last-child {
+  opacity: 0.8;
+}
+
+/* ===== SCROLLING page 4===== */
 
 .scroll-page {
   min-height: 100vh;
@@ -440,7 +483,7 @@ header {
   opacity: 1;
 }
 
-/* ===== SCANLINE SWEEP EFFECT ===== */
+/* ===== SCANLINE SWEEP EFFECT  PAGE 5===== */
 
 .scanline {
   position: fixed;

@@ -8,12 +8,14 @@
 
 <body class="search-page">
 
+<div class="search-bg"></div>
+
 <header>
   <nav>
     <a href="index.html">INDEX</a>
     <a href="bio.html">LIKE</a>
-    <a href="searching.html">SEARCH</a>
-    <a href="scrolling.html" class="active">SCROLLING</a>
+    <a href="searching.html" class="active">SEARCH</a>
+    <a href="scrolling.html">SCROLLING</a>
     <a href="tracking.html">TRACKING</a>
     <a href="recommendation.html">RECOMMENDATION</a>
   </nav>
@@ -23,12 +25,19 @@
   <h1 class="title">SEARCH</h1>
   <p class="subtitle">Simulate users typing keywords.</p>
 
-<div class="search-box">
-  <div class="search-icon">🔍</div>
-  <input id="searchInput" type="text" placeholder="Type to search..." autocomplete="off">
-</div>
+  <div class="search-box">
+    <div class="search-icon">🔍</div>
+    <input id="searchInput" type="text" placeholder="Type to search..." autocomplete="off">
+  </div>
 
-<div id="results"></div>
+  <div id="results"></div>
+  <ul class="suggest">
+  <li>People near you</li>
+  <li>Trending topics for users like you</li>
+  <li>Based on your recent behaviour</li>
+  <li>Similar users also searched:</li>
+  <li>→ Privacy settings</li>
+</ul>
 </main>
 
 <script>
@@ -41,10 +50,12 @@
       results.textContent = "";
       return;
     }
-    results.textContent = `"${value}" has been recorded for system improvement.`;
+    results.innerHTML = `
+      "${value}" has been recorded for system improvement.<br>
+      <span class="sys-note">System is learning your preferences…</span>
+    `;
   });
 </script>
 
 </body>
-
 </html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SCROLLING</title>
+  <link rel="stylesheet" href="default.css">
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="index.html">INDEX</a>
+    <a href="bio.html">LIKE</a>
+    <a href="searching.html">SEARCH</a>
+    <a href="scrolling.html" class="active">SCROLLING</a>
+    <a href="tracking.html">TRACKING</a>
+    <a href="recommendation.html">RECOMMENDATION</a>
+  </nav>
+</header>
+
+<div class="feed">
+
+  <div class="feed-item">
+    <span class="feed-tag">For you</span>
+    <p class="feed-text">You paused here for 12.4 seconds last time.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Suggested</span>
+    <p class="feed-text">Because you liked similar posts yesterday.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Watch again</span>
+    <p class="feed-text">We noticed you scrolled back to this twice.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Trending</span>
+    <p class="feed-text">Others like you are still scrolling.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">For you</span>
+    <p class="feed-text">You didn’t scroll. The system did.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Behavior</span>
+    <p class="feed-text">Your scroll speed matches users in Cluster 4.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Pattern detected</span>
+    <p class="feed-text">You tend to pause on posts containing faces.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Suggested</span>
+    <p class="feed-text">We prioritized this based on your recent activity.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Attention</span>
+    <p class="feed-text">Your viewing duration increased by 18% today.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Prediction</span>
+    <p class="feed-text">You are likely to scroll for another 3.7 minutes.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Analysis</span>
+    <p class="feed-text">Your scroll rhythm stabilized at 2.1 seconds per item.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Optimized</span>
+    <p class="feed-text">This post has a 63% match with your preferences.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">For you</span>
+    <p class="feed-text">Selected because you hesitated on a similar feed.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Signal</span>
+    <p class="feed-text">Your scroll-back attempts indicate unresolved interest.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Adaptive</span>
+    <p class="feed-text">Your feed is being recalibrated in real time.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Trending</span>
+    <p class="feed-text">Users like you watch this to the end.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Behavior</span>
+    <p class="feed-text">Your swipe direction shows decisive interaction.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Insight</span>
+    <p class="feed-text">Your interests have shifted by 12% in the last hour.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">Auto-selected</span>
+    <p class="feed-text">This was chosen for you before you started scrolling.</p>
+  </div>
+
+  <div class="feed-item">
+    <span class="feed-tag">System</span>
+    <p class="feed-text">Scrolling will continue automatically.</p>
+  </div>
+
+</div>
+
+  </div>
+</section>
+
+
+
+<script>
+  const SCROLL_SPEED = 0.6;
+
+  function autoScroll() {
+    const current = window.scrollY;
+    const docHeight = document.body.scrollHeight;
+    const winHeight = window.innerHeight;
+
+    if (current + winHeight < docHeight - 2) {
+      window.scrollTo(0, current + SCROLL_SPEED);
+    } else {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 1500);
+    }
+
+    requestAnimationFrame(autoScroll);
+  }
+
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      autoScroll();
+    }, 800);
+  });
+</script>
+
+</body>
+</html>

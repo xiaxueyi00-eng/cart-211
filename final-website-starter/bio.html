@@ -4,9 +4,14 @@
   <meta charset="UTF-8">
   <title>LIKE</title>
   <link rel="stylesheet" href="default.css">
+
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 
-<body class="like-page">
 
 <header>
   <nav>
@@ -15,14 +20,17 @@
     <a href="searching.html">SEARCH</a>
     <a href="scrolling.html" class="active">SCROLLING</a>
     <a href="tracking.html">TRACKING</a>
-   <a href="recommendation.html">RECOMMENDATION</a>
+    <a href="recommendation.html">RECOMMENDATION</a>
   </nav>
-  </header>
+</header>
 
-<section>
 <section class="like-page">
 
-  <h1 class="title">LIKE</h1>
+
+
+  <h1 class="title animate__animated animate__zoomInRight animate__slow">
+    LIKE
+  </h1>
 
   <div class="stack">
 
@@ -46,44 +54,42 @@
   </p>
 
   <div class="counter">Data Collected: 000</div>
-</section>
-
-</section>
 <script>
+
+const likeHeart = document.querySelector(".stack .heart");
+
+likeHeart.addEventListener("click", () => {
+  const float = document.createElement("div");
+  float.classList.add("floating-heart");
+  float.textContent = "❤️";
+
+  const rect = likeHeart.getBoundingClientRect();
+  float.style.left = rect.left + rect.width / 2 + "px";
+  float.style.top = rect.top + rect.height / 2 + "px";
+
+  document.body.appendChild(float);
+
+  setTimeout(() => float.remove(), 1000);
+});
+
+
+
 let count = 0;
+let index = 0;
 
-
-const heart = document.querySelector(".stack .heart");
 const counter = document.querySelector(".counter");
 const popup = document.getElementById("popup");
 const popupImg = document.getElementById("popup-img");
 
-
 const images = [
-  "assets/1.png",
-  "assets/2.png",
-  "assets/3.png",
-  "assets/4.png",
-  "assets/5.png",
-  "assets/6.png",
-  "assets/7.png",
-  "assets/8.png",
-  "assets/9.png",
-  "assets/10.png",
-  "assets/11.png",
-  "assets/12.png",
- "assets/13.png",
-   "assets/14.png",
-   "assets/15.png",
-   "assets/16.png",
-   "assets/17.png",
-   "assets/18.png",
+  "assets/1.png", "assets/2.png", "assets/3.png", "assets/4.png",
+  "assets/5.png", "assets/6.png", "assets/7.png", "assets/8.png",
+  "assets/9.png", "assets/10.png", "assets/11.png", "assets/12.png",
+  "assets/13.png", "assets/14.png", "assets/15.png", "assets/16.png",
+  "assets/17.png", "assets/18.png"
 ];
 
-
-let index = 0;
-
-heart.addEventListener("click", () => {
+likeHeart.addEventListener("click", () => {
 
   count++;
   counter.textContent = `Data Collected: ${String(count).padStart(3, '0')}`;
@@ -91,11 +97,9 @@ heart.addEventListener("click", () => {
   popupImg.src = images[index];
   popup.classList.add("show");
 
-
   if (index === images.length - 1) {
     counter.textContent = "Thanks for sharing yourself :)";
   }
-
 
   index = (index + 1) % images.length;
 });

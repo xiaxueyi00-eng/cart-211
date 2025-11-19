@@ -38,16 +38,15 @@ body {
   position: absolute;
   inset: 0;
 
+
   background: url("assets/depositphotos_7906610-stock-photo-shadowy-figure-trapped-behind-glass-2.jpg")
     center/80% no-repeat;
-
-  opacity: 0.18;
+ opacity: 0.18;
   filter: blur(28px);
   z-index: -1;
 
-  animation: bgSlide 14s ease-in-out infinite;
+  animation: trappedMove 4.5s cubic-bezier(.36,.07,.19,.97) infinite;
 }
-
 .title {
   font-size: 3.4rem;
   letter-spacing: 0.02em;
@@ -96,6 +95,26 @@ header {
   0%   { transform: translateX(-160px); }
   50%  { transform: translateX(160px); }
   100% { transform: translateX(-160px); }
+}
+@keyframes trappedMove {
+  0%   { transform: translate(0, 0) scale(1); filter: blur(28px) brightness(100%); }
+  8%   { transform: translate(-12px, -18px) scale(1.02); filter: blur(25px) brightness(120%); }
+  15%  { transform: translate(14px, 10px) scale(1.04); filter: blur(22px) brightness(120%); }
+
+  18%  { transform: translate(0, 0) scale(1.08); filter: blur(18px) brightness(150%); }
+
+  28%  { transform: translate(-20px, 16px) scale(1.03); filter: blur(24px) brightness(115%); }
+  38%  { transform: translate(12px, -14px) scale(1.02); filter: blur(26px) brightness(105%); }
+
+  42%  { transform: translate(0, 0) scale(1.08); filter: blur(18px) brightness(160%); }
+
+  55%  { transform: translate(-16px, 8px) scale(1.04); filter: blur(22px) brightness(115%); }
+  68%  { transform: translate(18px, -10px) scale(1.03); filter: blur(25px) brightness(108%); }
+
+  75%  { transform: translate(-8px, 6px) scale(1.02); filter: blur(26px) brightness(110%); }
+  85%  { transform: translate(6px, -6px) scale(1.01); filter: blur(28px) brightness(100%); }
+
+  100% { transform: translate(0, 0) scale(1); filter: blur(28px) brightness(100%); }
 }
 /* PAGE TWO : LIKE PAGE
 ----------------------------------------*/
@@ -258,6 +277,32 @@ header {
   filter: brightness(1.06) contrast(1.05) saturate(1.15);
   backdrop-filter: blur(3px);
   transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ⭐ Click Floating Heart Animation */
+.floating-heart {
+  position: absolute;
+  font-size: 40px;
+  color: #ff3366;
+  pointer-events: none;
+  animation: floatUp 1s ease-out forwards;
+  opacity: 1;
+  z-index: 99999;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-40px) scale(1.4);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-80px) scale(1);
+    opacity: 0;
+  }
 }
 
 /* PAGE THREE : SEARCH PAGE

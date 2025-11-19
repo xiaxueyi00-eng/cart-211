@@ -19,6 +19,23 @@
   </nav>
 </header>
 
+
+<button id="startScroll" style="
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 14px 28px;
+  background: transparent;
+  color: rgba(248, 0, 0, 0.388);
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 9999;
+">
+  START SCROLLING
+</button>
+
 <div class="feed">
 
   <div class="feed-item">
@@ -33,7 +50,7 @@
 
   <div class="feed-item">
     <span class="feed-tag">Watch again</span>
-    <p class="feed-text"> You scrolled back to this twice.</p>
+    <p class="feed-text">You scrolled back to this twice.</p>
   </div>
 
   <div class="feed-item">
@@ -61,7 +78,6 @@
     <p class="feed-text">You may like to scroll for another 3-7 minutes.</p>
   </div>
 
-
   <div class="feed-item">
     <span class="feed-tag">Optimized</span>
     <p class="feed-text">This post has a 63% match with your preferences.</p>
@@ -72,7 +88,6 @@
     <p class="feed-text">Because you hesitated on a similar feed.</p>
   </div>
 
-
   <div class="feed-item">
     <span class="feed-tag">Adaptive</span>
     <p class="feed-text">Your feed is being recalibrated in real time.</p>
@@ -82,7 +97,6 @@
     <span class="feed-tag">Trending</span>
     <p class="feed-text">Users like you watch this to the end.</p>
   </div>
-
 
   <div class="feed-item">
     <span class="feed-tag">Insight</span>
@@ -96,22 +110,40 @@
 
 </div>
 
-  </div>
-</section>
-
-
-
 <script>
-  const SCROLL_SPEED = 0.6;
+  // ===== 1. Audio =====
+  const trackSound = new Audio("assets/sounds/sound2.wav");
+  trackSound.volume = 0.3;
+  trackSound.loop = true;
 
+  // ===== 2. Start after user interaction =====
+  const startBtn = document.getElementById("startScroll");
+
+  startBtn.addEventListener("click", () => {
+    trackSound.play();
+    startBtn.remove();
+    autoScroll();
+  });
+
+  // ===== 3. Scroll speed (dynamic) =====
+  let scrollSpeed = 0.6;
+  const minSpeed = 0.2;
+  const maxSpeed = 3.0;
+
+  // ===== 4. Auto scrolling function =====
   function autoScroll() {
     const current = window.scrollY;
     const docHeight = document.body.scrollHeight;
     const winHeight = window.innerHeight;
 
+    // sync sound speed with scroll speed
+    trackSound.playbackRate = scrollSpeed * 1.8;
+
+    // actual scrolling
     if (current + winHeight < docHeight - 2) {
-      window.scrollTo(0, current + SCROLL_SPEED);
+      window.scrollTo(0, current + scrollSpeed);
     } else {
+      // pause at bottom, then reset to top
       setTimeout(() => {
         window.scrollTo(0, 0);
       }, 1500);
@@ -120,12 +152,12 @@
     requestAnimationFrame(autoScroll);
   }
 
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      autoScroll();
-    }, 800);
+
+  document.addEventListener("wheel", (e) => {
+    if (e.deltaY < 0) {
+      scrollSpeed = Math.min(scrollSpeed + 0.15, maxSpeed);
+    } else {
+      scrollSpeed = Math.max(scrollSpeed - 0.15, minSpeed);
+    }
   });
 </script>
-
-</body>
-</html>

@@ -9,61 +9,92 @@
 
 <body class="search-page">
 
-<div class="search-bg"></div>
+  <div class="search-bg-surveil"></div>
 
-<header>
-  <nav>
-    <a href="index.html">INDEX</a>
-    <a href="bio.html">LIKE</a>
-    <a href="searching.html" class="active">SEARCH</a>
-    <a href="scrolling.html">SCROLLING</a>
-    <a href="tracking.html">TRACKING</a>
-    <a href="recommendation.html">RECOMMENDATION</a>
-  </nav>
-</header>
+  <header>
+    <nav>
+      <a href="index.html">INDEX</a>
+      <a href="bio.html">LIKE</a>
+      <a href="searching.html" class="active">SEARCH</a>
+      <a href="scrolling.html">SCROLLING</a>
+      <a href="tracking.html">TRACKING</a>
+      <a href="recommendation.html">RECOMMENDATION</a>
+    </nav>
+  </header>
 
-<main class="search-wrap">
-  <h1 class="title">SEARCH</h1>
-  <p class="subtitle">Simulate users typing keywords.</p>
+  <main class="search-wrap">
+    <h1 id="searchTitle" class="title">SEARCH</h1>
 
-  <div class="search-box">
-    <div class="search-icon">🔍</div>
-    <input id="searchInput" type="text" placeholder="Type to search..." autocomplete="off">
-  </div>
+    <div class="search-box">
+      <div class="search-icon">🔍</div>
+      <input id="searchInput" type="text" placeholder="Type to search..." autocomplete="off">
+    </div>
 
-  <div id="results"></div>
-  <ul class="suggest">
-  <li>People near you</li>
-  <li>Trending topics for users like you</li>
-  <li>Based on your recent behaviour</li>
-  <li>Similar users also searched:</li>
-  <li>→ Privacy settings</li>
-</ul>
-</main>
+    <div id="results"></div>
 
-<script>
-  const input = document.getElementById("searchInput");
-  const results = document.getElementById("results");
+    <ul class="suggest">
+      <li>People near you</li>
+      <li>Trending topics for users like you</li>
+      <li>Based on your recent behaviour</li>
+      <li>Similar users also searched:</li>
+      <li>→ Privacy settings</li>
+    </ul>
+  </main>
 
-  function playAnimation(el) {
-    el.classList.remove("magictime", "slideDownReturn");
-    void el.offsetWidth;
+  <script>
+    const input = document.getElementById("searchInput");
+    const results = document.getElementById("results");
+    const title = document.getElementById("searchTitle");
+    const body  = document.body;
 
-    el.classList.add("magictime", "slideDownReturn");
-  }
+    function playResultAnimation(el) {
+      el.classList.remove("magictime", "slideDownReturn", "active");
+      void el.offsetWidth;
+      el.classList.add("active", "magictime", "slideDownReturn");
+    }
+let typingTimer;
+const delay = 800;
 
-  input.addEventListener("input", () => {
-    const value = input.value.trim();
-
-    if (!value) {
-      results.textContent = "";
-      return;
+function delayedFlashTitle() {
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(() => {
+    flashTitle();
+  }, delay);
+}
+function flashTitle() {
+  title.classList.remove("magictime", "puffIn");
+  void title.offsetWidth;
+  title.classList.add("magictime", "puffIn");
+}
+    function flashBackground() {
+      body.classList.add("typing");
+      setTimeout(() => {
+        body.classList.remove("typing");
+      }, 250);
     }
 
-    results.innerHTML = `
-      "${value}" has been recorded for system improvement.<br>
-      <span class="sys-note">System is learning your preferences…</span>
-    `;
-    playAnimation(results);
-  });
-</script>
+    input.addEventListener("input", () => {
+      const value = input.value.trim();
+
+      if (!value) {
+        results.textContent = "";
+        results.classList.remove("active");
+        return;
+      }
+
+      results.innerHTML = `
+        "${value}" has been recorded for system improvement.<br>
+        <span class="sys-note">System is learning your preferences…</span>
+      `;
+
+      playResultAnimation(results);
+
+      delayedFlashTitle();
+      flashBackground();
+    });
+  </script>
+
+</body>
+</html>
+
+

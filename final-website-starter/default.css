@@ -309,8 +309,8 @@ header {
 ----------------------------------------*/
 .search-page {
   font-family: "Inter", sans-serif;
-  background: #fff;
-  color: #111;
+  background: linear-gradient(145deg, #ffffff, #f2f6ff);
+  color: #222;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -319,46 +319,53 @@ header {
   box-sizing: border-box;
   text-align: center;
   flex-direction: column;
+  position: relative;
 }
 
-.search-bg {
+
+.search-bg-surveil {
   position: fixed;
   inset: 0;
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(0,0,0,0.15) 0px,
-    rgba(0,0,0,0.15) 1px,
-    transparent 1px,
-    transparent 40px
-  );
-  mask-image: linear-gradient(to bottom, transparent, black, transparent);
-  animation: scanMove 18s linear infinite;
-  opacity: 0.25;
-  transition: opacity 0.25s ease;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px;
+  animation: subtleMove 14s linear infinite;
+  opacity: 0.28;
+  pointer-events: none;
   z-index: -1;
 }
 
-.search-page.typing .search-bg {
-  opacity: 0.9;
-  filter: brightness(1.9);
-  transform: scaleY(1.2);
+@keyframes subtleMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-240px); }
 }
 
-@keyframes typingFlash {
-  0%   { filter: brightness(1.5) blur(0px); }
-  50%  { filter: brightness(2.5) blur(1px); }
-  100% { filter: brightness(1.5) blur(0px); }
+
+.search-page.typing .search-bg-surveil {
+  opacity: 0.5;
+  filter: brightness(1.6);
 }
+
+
+#searchTitle {
+  display: inline-block;
+  transform-origin: center top;
+  color: #222;
+}
+
+
 .search-box {
   width: min(950px, 90vw);
   height: 68px;
   display: flex;
   align-items: center;
-  border: 2px solid #ddd;
+  border: 2px solid #ccc;
   border-radius: 34px;
   padding: 0 28px;
-  background: #fff;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+  background: #fafafa;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  margin-top: 24px;
 }
 
 .search-icon {
@@ -373,33 +380,46 @@ header {
   border: none;
   outline: none;
   background: transparent;
+  color: #222;
 }
+
+
 .title {
   font-size: 64px;
   font-weight: 600;
   margin-bottom: 12px;
 }
 
-.subtitle {
-  font-size: 20px;
-  color: #555;
-  margin-bottom: 50px;
-}#results {
+
+#results {
   margin-top: 20px;
-  font-size: 20px;
-  color: #555;
+  font-size: 18px;
+  color: #1a7a3f;
   text-align: center;
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Courier New", monospace;
+  min-height: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
+
+#results.active {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
 .sys-note {
-  opacity: 0.6;
+  opacity: 0.7;
   font-size: 14px;
 }
+
 .suggest {
   list-style: none;
   margin-top: 25px;
   padding: 0;
   font-size: 14px;
-  opacity: 0.65;
+  opacity: 0.75;
   color: #555;
   line-height: 1.5;
   text-align: center;
@@ -408,14 +428,35 @@ header {
 .suggest li:nth-child(4) {
   margin-top: 10px;
   font-weight: 600;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .suggest li:last-child {
-  opacity: 0.8;
+  opacity: 0.9;
+}
+/* --- SURVEILLANCE BACKGROUND --- */
+.search-bg-surveil {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px;
+  animation: subtleMove 12s linear infinite;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: -1;
 }
 
+@keyframes subtleMove {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-200px); }
+}
 
+.search-page.typing .search-bg-surveil {
+  opacity: 0.5;
+  filter: brightness(2);
+}
 /* PAGE FOUR : SCROLLING PAGE
 ----------------------------------------*/
 
@@ -466,6 +507,24 @@ header {
   margin-top: 6px;
   font-size: 14px;
   line-height: 1.5;
+}s
+.feed-item .feed-text {
+  position: relative;
+}
+
+.feed-item .feed-text::after {
+  content: "";
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+.feed-item:hover .feed-text::after {
+  content: " • System is analyzing your pause time...";
+  opacity: 0.7;
+  font-size: 12px;
+  color: #888;
+  margin-left: 4px;
 }
 
 
@@ -594,6 +653,16 @@ header {
 
 .tracking-page.scanning .track-hint {
   opacity: 1;
+}
+
+#trackCanvas {
+  width: 100%;
+  height: 100vh;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
 /* END OF PAGE 5 */
 

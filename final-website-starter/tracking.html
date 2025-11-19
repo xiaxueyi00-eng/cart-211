@@ -18,6 +18,8 @@
       <a href="scrolling.html">SCROLLING</a>
       <a href="tracking.html" class="active">TRACKING</a>
    <a href="recommendation.html">RECOMMENDATION</a>
+     <a href="distortion.html">LOSS OF CONTROL</a>
+     <a href="loss.html" class="active">LOSS OF CONTROL</a>
     </nav>
   </header>
 
@@ -30,8 +32,8 @@
   <div class="track-hint">Collecting behaviour data…</div>
   <script>
 
-const trackSound = new Audio("assets/sounds/sound1.wav");
-trackSound.volume = 0.35;
+const trackSound = new Audio("assets/sound1.wav");
+trackSound.volume = 0.15;
 const canvas = document.getElementById("trackCanvas");
 const ctx = canvas.getContext("2d");
 

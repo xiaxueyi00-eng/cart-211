@@ -37,12 +37,12 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-
-
   background: url("assets/depositphotos_7906610-stock-photo-shadowy-figure-trapped-behind-glass-2.jpg")
-    center/80% no-repeat;
- opacity: 0.18;
-  filter: blur(28px);
+    center/cover no-repeat;
+
+  opacity: 0.32;
+  filter: blur(10px) brightness(1.15);
+
   z-index: -1;
 
   animation: trappedMove 4.5s cubic-bezier(.36,.07,.19,.97) infinite;
@@ -523,11 +523,40 @@ header {
   content: " • System is analyzing your pause time...";
   opacity: 0.7;
   font-size: 12px;
-  color: #888;
+  color: #c9629b;
   margin-left: 4px;
 }
 
+.start-btn {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
+  padding: 40px 80px;
+  background: #e4b3cb6a;
+
+
+  color: #ed5781;
+  font-size: 32px;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+  z-index: 9999;
+  border-radius: 12px;
+box-shadow:
+  0 0 35px rgba(237, 87, 129, 0.85),
+  0 0 70px rgba(237, 87, 129, 0.55);
+
+  transition: transform 0.25s ease;
+}
+
+.start-btn:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+.start-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
 /* PAGE FIVE : TRACKING PAGE
 ----------------------------------------*/
 
@@ -664,6 +693,7 @@ header {
   left: 0;
   pointer-events: none;
 }
+
 /* END OF PAGE 5 */
 
 
@@ -741,7 +771,65 @@ header {
 /* END OF PAGE 6 */
 
 /*Page Seven */
+.loss-title {
+  font-size: 70px;
+  margin-top: 140px;
+  position: relative;
+  z-index: 2;
+}
+.loss-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  z-index: 10;
+}
+
+.loss-page {
+  position: relative;
+  font-family: "Inter", sans-serif;
+  color: #fff;
+
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.loss-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: url("assets/image.webp") center/80% no-repeat;
+  opacity: 0.22;
+  filter: blur(26px);
+  z-index: 0;
+
+  animation: lossMove 5s cubic-bezier(.36,.07,.19,.97) infinite;
+}
+
+
+@keyframes lossMove {
+  0%   { transform: translate(0, 0) scale(1); filter: blur(26px) brightness(100%); }
+  10%  { transform: translate(-14px, -18px) scale(1.03); filter: blur(24px) brightness(120%); }
+  20%  { transform: translate(16px, 8px) scale(1.04); filter: blur(22px) brightness(130%); }
+  35%  { transform: translate(-22px, 12px) scale(1.02); filter: blur(25px) brightness(115%); }
+
+  50%  { transform: translate(0, 0) scale(1.05); filter: blur(20px) brightness(150%); }
+
+  65%  { transform: translate(18px, -10px) scale(1.03); filter: blur(23px) brightness(110%); }
+  75%  { transform: translate(-10px, 6px) scale(1.02); filter: blur(26px) brightness(105%); }
+
+  100% { transform: translate(0, 0) scale(1); filter: blur(26px) brightness(100%); }
+}
 .distortion-page {
   font-family: "Inter", sans-serif;
   background: #000;
@@ -849,54 +937,104 @@ header {
   transition: 0.2s;
 }
 
-/* PAGE Eight : Page STYLE */
-.hero::before {
+/* END OF PAGE 7 */
 
-  background: url("assets/images.jpeg")
-    center/80% no-repeat;
- opacity: 0.18;
-  filter: blur(28px);
-  z-index: -1;
-}
 
+/* PAGE EIGHT : LOSE PAGE */
 .loss-page {
+  position: relative;
   font-family: "Inter", sans-serif;
-  background: #e4e1e1;
   color: #fff;
+
+  background-image: url("assets/image.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   height: 100vh;
   overflow: hidden;
-  text-align: center;
-  position: relative;
 }
 
-/* TITLE GLITCH */
-.loss-title {
-  font-size: 70px;
-  margin-top: 140px;
-  animation: shake 0.2s infinite;
+.loss-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.55;
+  filter: blur(12px) brightness(1.6);
+  z-index: 0;
+
+  animation: bgMoveBig 9s ease-in-out infinite alternate;
 }
 
-@keyframes shake {
-  0% { transform: translate(0); }
-  50% { transform: translate(-3px, 2px); }
-  100% { transform: translate(3px, -2px); }
-}
-
-/* TEXT FADE */
 .loss-text {
   font-size: 22px;
-  opacity: 0.8;
+  opacity: 0.85;
   margin-top: 20px;
+  position: relative;
+  z-index: 3;
   animation: flicker 2s infinite;
 }
 
-@keyframes flicker {
-  0%, 95% { opacity: 0.8; }
-  96% { opacity: 0.2; }
-  100% { opacity: 0.8; }
+.crack {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 420px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  background-image: url("assets/image.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.85;
+  z-index: 4;
+
+  animation: crackPulse 2s infinite ease-in-out,
+             crackFlash 0.15s infinite steps(2),
+             crackShake 0.12s infinite;
 }
 
-/* BUTTON THAT REFUSES USER CONTROL */
+@keyframes crackPulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+}
+
+@keyframes crackFlash {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(2); }
+  100% { filter: brightness(1); }
+}
+
+.overlay-glitch {
+  position: absolute;
+  inset: 0;
+
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.05) 0px,
+    rgba(255,255,255,0.05) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  pointer-events: none;
+  animation: glitchMove 1.6s infinite linear;
+  opacity: 0.25;
+  z-index: 2;
+}
+
+@keyframes glitchMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50px); }
+}
+
+
 .fake-btn {
   margin-top: 60px;
   padding: 15px 40px;
@@ -906,7 +1044,8 @@ header {
   font-size: 20px;
   cursor: pointer;
   position: relative;
-  transition: 0.1s ease;
+  z-index: 5;
+  transition: 0.2s ease;
 }
 
 .fake-btn:hover {
@@ -914,55 +1053,15 @@ header {
   color: #fff;
 }
 
-/* GLITCH OVERLAY */
-.overlay-glitch {
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,0.05) 0px,
-      rgba(255,255,255,0.05) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-  pointer-events: none;
-  animation: glitchMove 1.6s infinite linear;
-  opacity: 0.2;
-}
-
-@keyframes glitchMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50px); }
-}
-
-/* NAV color */
 .loss-page nav a {
   color: #fff !important;
-  opacity: 0.6;
+  opacity: 0.75;
 }
-.loss-page nav a:hover {
+
+.tracking-page nav a:hover {
   opacity: 1;
 }
 
-.page-glitch {
-  animation: smallShake 0.15s;
-}
-
-@keyframes smallShake {
-  0% { transform: translate(0,0); }
-  30% { transform: translate(-2px,1px); }
-  60% { transform: translate(2px,-1px); }
-  100% { transform: translate(0,0); }
-}
-
-
-.text-glitch {
-  animation: textFlick 0.25s steps(2, end);
-}
-
-@keyframes textFlick {
-  0% { opacity: 1; }
-  50% { opacity: 0.4; filter: blur(1px); }
-  100% { opacity: 1; filter: blur(0); }
+.fake-btn {
+  transition: transform 0.3s ease, background 0.2s ease;
 }

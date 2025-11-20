@@ -43,17 +43,43 @@
     </ul>
   </main>
 
-  <script>
-    const input = document.getElementById("searchInput");
-    const results = document.getElementById("results");
-    const title = document.getElementById("searchTitle");
-    const body  = document.body;
+<script>
 
-    function playResultAnimation(el) {
-      el.classList.remove("magictime", "slideDownReturn", "active");
-      void el.offsetWidth;
-      el.classList.add("active", "magictime", "slideDownReturn");
-    }
+const input = document.getElementById("searchInput");
+
+const autoText =
+"system is analyzing your search patterns... extracting behavioural signals... detecting interest shifts... predicting your next intention...";
+
+let autoIndex = 0;
+
+function autoType() {
+  if (autoIndex < autoText.length) {
+    input.value += autoText.charAt(autoIndex);
+
+
+    input.dispatchEvent(new Event("input"));
+
+    autoIndex++;
+    setTimeout(autoType, 85);
+  }
+}
+
+
+window.addEventListener("load", () => {
+  setTimeout(autoType, 800);
+});
+
+
+const results = document.getElementById("results");
+const title = document.getElementById("searchTitle");
+const body  = document.body;
+
+function playResultAnimation(el) {
+  el.classList.remove("magictime", "slideDownReturn", "active");
+  void el.offsetWidth;
+  el.classList.add("active", "magictime", "slideDownReturn");
+}
+
 let typingTimer;
 const delay = 800;
 
@@ -63,40 +89,30 @@ function delayedFlashTitle() {
     flashTitle();
   }, delay);
 }
+
 function flashTitle() {
   title.classList.remove("magictime", "puffIn");
   void title.offsetWidth;
   title.classList.add("magictime", "puffIn");
 }
-    function flashBackground() {
-      body.classList.add("typing");
-      setTimeout(() => {
-        body.classList.remove("typing");
-      }, 250);
-    }
 
-    input.addEventListener("input", () => {
-      const value = input.value.trim();
+function flashBackground() {
+  body.classList.add("typing");
+  setTimeout(() => {
+    body.classList.remove("typing");
+  }, 250);
+}
 
-      if (!value) {
-        results.textContent = "";
-        results.classList.remove("active");
-        return;
-      }
+input.addEventListener("input", () => {
+  const value = input.value.trim();
 
-      results.innerHTML = `
-        "${value}" has been recorded for system improvement.<br>
-        <span class="sys-note">System is learning your preferences…</span>
-      `;
-
-      playResultAnimation(results);
-
-      delayedFlashTitle();
-      flashBackground();
-    });
-  </script>
-
-</body>
-</html>
-
-
+  if (!value) {
+    results.textContent = "";
+    results.classList.remove("active");
+    return;
+  }
+  playResultAnimation(results);
+  delayedFlashTitle();
+  flashBackground();
+});
+</script>

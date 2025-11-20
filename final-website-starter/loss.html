@@ -3,37 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>LOSS OF CONTROL</title>
+
   <link rel="stylesheet" href="default.css">
-  <link rel="stylesheet" href="loss.css">
 </head>
 
 <body class="loss-page">
 
-
   <div class="crack"></div>
 
-<header>
-  <nav>
-    <a href="index.html">INDEX</a>
-    <a href="bio.html">LIKE</a>
-    <a href="searching.html">SEARCH</a>
-    <a href="scrolling.html" class="active">SCROLLING</a>
-    <a href="tracking.html">TRACKING</a>
-<a href="recommendation.html">RECOMMENDATION</a>
-  <a href="distortion.html">LOSS OF CONTROL</a>
-  <a href="loss.html" class="active">LOSS OF CONTROL</a>
-  </nav>
-</header>
-<h1 class="titlevanishIn">LOSS OF CONTROL</h1>
-  Your actions are no longer processed.<br>
-  The system has taken control.
-</p>
+  <header>
+    <nav>
+      <a href="index.html">INDEX</a>
+      <a href="bio.html">LIKE</a>
+      <a href="searching.html">SEARCH</a>
+      <a href="scrolling.html">SCROLLING</a>
+      <a href="tracking.html">TRACKING</a>
+      <a href="recommendation.html">RECOMMENDATION</a>
+      <a href="distortion.html">LOSS OF CONTROL</a>
+      <a href="loss.html" class="active">LOSS OF CONTROL</a>
+    </nav>
+  </header>
 
-<button id="fakeBtn" class="fake-btn">PROCEED</button>
+ <div class="loss-center">
+  <h1 class="loss-title">LOSS OF CONTROL</h1>
 
-<div class="overlay-glitch"></div>
+  <p class="loss-text">
+    Your actions are no longer processed.<br>
+    The system has taken control.
+  </p>
 
-<script src="loss.js"></script>
+  <button id="fakeBtn" class="fake-btn">PROCEED</button>
+</div>
+
+  <div class="overlay-glitch"></div>
+
+  <script>
+    const btn = document.getElementById("fakeBtn");
+   btn.addEventListener("mouseover", () => {
+  btn.style.transform = `translate(${Math.random()*360 - 180}px, ${Math.random()*360 - 180}px)`;
+});
+  </script>
 
 </body>
 </html>

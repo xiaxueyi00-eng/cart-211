@@ -850,9 +850,15 @@ header {
 }
 
 /* PAGE Eight : Page STYLE */
-.loss-page {
-  background-image: url("../assets/images.jpeg");
+.hero::before {
+
+  background: url("assets/images.jpeg")
+    center/80% no-repeat;
+ opacity: 0.18;
+  filter: blur(28px);
+  z-index: -1;
 }
+
 .loss-page {
   font-family: "Inter", sans-serif;
   background: #e4e1e1;

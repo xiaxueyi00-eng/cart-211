@@ -8,23 +8,7 @@
 
 <body>
 
-<header>
-  <nav>
-    <a href="index.html">INDEX</a>
-    <a href="bio.html">LIKE</a>
-    <a href="searching.html">SEARCH</a>
-    <a href="scrolling.html" class="active">SCROLLING</a>
-    <a href="tracking.html">TRACKING</a>
-<a href="recommendation.html">RECOMMENDATION</a>
-  <a href="distortion.html">LOSS OF CONTROL</a>
-  <a href="loss.html" class="active">LOSS OF CONTROL</a>
-  </nav>
-</header>
 
-
-<button id="startScroll" class="start-btn">
-  START SCROLLING
-</button>
 
 <div class="feed">
 
@@ -99,62 +83,4 @@
   </div>
 
 </div>
-
-<script>
-  // ===== 1. Audio =====
-  const trackSound = new Audio("assets/sounds/sound2.wav");
-  trackSound.volume = 0.3;
-  trackSound.loop = true;
-
-  // ===== 2. Start after user interaction =====
-const startBtn = document.getElementById("startScroll");
-
-startBtn.addEventListener("click", () => {
-
-
-  startBtn.classList.add("magictime", "vanishOut");
-
-
-  setTimeout(() => {
-    startBtn.remove();
-  }, 900);
-
-  autoScroll();
-});
-
-  // ===== 3. Scroll speed (dynamic) =====
-  let scrollSpeed = 0.6;
-  const minSpeed = 0.2;
-  const maxSpeed = 3.0;
-
-  // ===== 4. Auto scrolling function =====
-  function autoScroll() {
-    const current = window.scrollY;
-    const docHeight = document.body.scrollHeight;
-    const winHeight = window.innerHeight;
-
-    // sync sound speed with scroll speed
-    trackSound.playbackRate = scrollSpeed * 1.8;
-
-    // actual scrolling
-    if (current + winHeight < docHeight - 2) {
-      window.scrollTo(0, current + scrollSpeed);
-    } else {
-      // pause at bottom, then reset to top
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 1500);
-    }
-
-    requestAnimationFrame(autoScroll);
-  }
-
-
-  document.addEventListener("wheel", (e) => {
-    if (e.deltaY < 0) {
-      scrollSpeed = Math.min(scrollSpeed + 0.15, maxSpeed);
-    } else {
-      scrollSpeed = Math.max(scrollSpeed - 0.15, minSpeed);
-    }
-  });
-</script>
+<a href="tracking.html" class="next-btn">Next Page</a>

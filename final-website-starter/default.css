@@ -434,29 +434,24 @@ header {
 .suggest li:last-child {
   opacity: 0.9;
 }
-/* --- SURVEILLANCE BACKGROUND --- */
-.search-bg-surveil {
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 40px 40px, 40px 40px;
-  animation: subtleMove 12s linear infinite;
-  opacity: 0.18;
-  pointer-events: none;
-  z-index: -1;
-}
 
-@keyframes subtleMove {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-200px); }
-}
 
 .search-page.typing .search-bg-surveil {
   opacity: 0.5;
   filter: brightness(2);
 }
+.next-btn {
+  display: block;
+  width: max-content;
+  margin: 80px auto 80px auto;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: rgba(37, 72, 107, 0.12);
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+}
+
 /* PAGE FOUR : SCROLLING PAGE
 ----------------------------------------*/
 
@@ -700,75 +695,83 @@ box-shadow:
 /* PAGE SIX : RECOMMENDATION PAGE
 ----------------------------------------*/
 
+/* ---- PAGE BASE ---- */
 .recommend-page {
-  height: 100vh;
-  background: #0f0f0f;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 40px;
+  background: #08080b;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+  padding-bottom: 5rem;
 }
 
 .rec-title {
-  font-size: 3rem;
-  margin-bottom: 12px;
-  letter-spacing: 0.12em;
+  text-align: center;
+  font-size: 2.4rem;
+  letter-spacing: 0.18em;
+  margin-top: 5rem;
 }
 
 .rec-sub {
-  opacity: 0.5;
-  margin-bottom: 40px;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-}
-
-.rec-box {
-  background: rgba(255,255,255,0.06);
-  padding: 30px 40px;
-  border-radius: 18px;
-  backdrop-filter: blur(16px);
   text-align: center;
-  width: 420px;
-  box-shadow: 0 10px 40px rgba(255,255,255,0.1);
-  animation: glow 2s infinite ease-in-out;
+  opacity: 0.7;
+  margin-bottom: 3rem;
+  font-size: 0.95rem;
 }
 
-@keyframes glow {
-  0% { box-shadow: 0 0 18px rgba(255,255,255,0.06); }
-  50% { box-shadow: 0 0 28px rgba(255,255,255,0.14); }
-  100% { box-shadow: 0 0 18px rgba(255,255,255,0.06); }
+
+/* ---- GRID ---- */
+.rec-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1.5rem 3rem;
 }
 
-.rec-tag {
+
+/* ---- CARD ---- */
+.rec-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 1.6rem 1.4rem;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, background 0.3s ease;
+  min-height: 130px;
+}
+
+
+.rec-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.12);
+}
+
+.rec-card .tag {
+  font-size: 0.75rem;
   text-transform: uppercase;
-  font-size: 0.8rem;
-  opacity: 0.55;
-  margin-bottom: 12px;
   letter-spacing: 0.15em;
+  opacity: 0.65;
+  margin-bottom: 0.8rem;
 }
 
-.rec-content {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-  font-weight: 500;
+
+.rec-card .desc {
+  font-size: 0.92rem;
+  line-height: 1.4rem;
+  opacity: 0.85;
 }
 
-.rec-reason {
-  font-size: 0.8rem;
-  opacity: 0.55;
+.fake-btn:hover {
+  background: #ff4444;
+  color: #fff;
 }
-/* Make navigation white only on recommendation page */
+
 .recommend-page nav a {
   color: #fff !important;
   opacity: 0.75;
 }
 
-.tracking-page nav a:hover {
-  opacity: 1;
-}
-/* END OF PAGE 6 */
 
 /*Page Seven */
 .loss-title {
@@ -803,33 +806,7 @@ box-shadow:
 }
 
 
-.loss-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
 
-  background: url("assets/image.webp") center/80% no-repeat;
-  opacity: 0.22;
-  filter: blur(26px);
-  z-index: 0;
-
-  animation: lossMove 5s cubic-bezier(.36,.07,.19,.97) infinite;
-}
-
-
-@keyframes lossMove {
-  0%   { transform: translate(0, 0) scale(1); filter: blur(26px) brightness(100%); }
-  10%  { transform: translate(-14px, -18px) scale(1.03); filter: blur(24px) brightness(120%); }
-  20%  { transform: translate(16px, 8px) scale(1.04); filter: blur(22px) brightness(130%); }
-  35%  { transform: translate(-22px, 12px) scale(1.02); filter: blur(25px) brightness(115%); }
-
-  50%  { transform: translate(0, 0) scale(1.05); filter: blur(20px) brightness(150%); }
-
-  65%  { transform: translate(18px, -10px) scale(1.03); filter: blur(23px) brightness(110%); }
-  75%  { transform: translate(-10px, 6px) scale(1.02); filter: blur(26px) brightness(105%); }
-
-  100% { transform: translate(0, 0) scale(1); filter: blur(26px) brightness(100%); }
-}
 .distortion-page {
   font-family: "Inter", sans-serif;
   background: #000;
@@ -873,18 +850,6 @@ box-shadow:
 }
 
 
-@keyframes glitch-offset {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(-4px, 2px); }
-  100% { transform: translate(4px, -2px); }
-}
-
-@keyframes glitch-skew {
-  0% { transform: skew(0deg); }
-  50% { transform: skew(4deg); }
-  100% { transform: skew(-4deg); }
-}
-
 /* ==== BODY TEXT ==== */
 .distort-text {
   margin-top: 40px;
@@ -895,29 +860,7 @@ box-shadow:
   letter-spacing: 0.5px;
 }
 
-@keyframes textGlitch {
-  0%, 95%, 100% { filter: blur(0px); opacity: 1; }
-  96% { filter: blur(4px); opacity: 0.5; }
-}
 
-/* ==== MOVING GLITCH LAYER ==== */
-.glitch-layer {
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    rgba(255,255,255,0.03) 0px,
-    rgba(255,255,255,0.03) 2px,
-    transparent 2px,
-    transparent 4px
-  );
-  animation: scan 4s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes scan {
-  0% { transform: translateY(-100px); }
-  100% { transform: translateY(100px); }
-}
 .distortion-page nav a {
   color: #fff !important;
   opacity: 0.75;
@@ -994,21 +937,6 @@ box-shadow:
   opacity: 0.85;
   z-index: 4;
 
-  animation: crackPulse 2s infinite ease-in-out,
-             crackFlash 0.15s infinite steps(2),
-             crackShake 0.12s infinite;
-}
-
-@keyframes crackPulse {
-  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-}
-
-@keyframes crackFlash {
-  0% { filter: brightness(1); }
-  50% { filter: brightness(2); }
-  100% { filter: brightness(1); }
 }
 
 .overlay-glitch {
@@ -1065,3 +993,129 @@ box-shadow:
 .fake-btn {
   transition: transform 0.3s ease, background 0.2s ease;
 }
+
+/* Page 9*/
+/* ---------- REFLECTION PAGE ---------- */
+.reflection-page {
+  background: #050509;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+}
+
+.reflection-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 5rem auto 0;
+  padding: 0 2rem;
+}
+
+.reflection-text h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.18em;
+  margin-bottom: 1.5rem;
+}
+
+.reflection-line {
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+  max-width: 34rem;
+}
+
+.reflection-line.large {
+  font-size: 1.3rem;
+}
+
+.reflection-line.medium {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.reflection-line.small {
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.reflection-line span {
+  font-weight: 600;
+}
+
+.system-highlight {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.reflection-note {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* ---------------- log box -------------- */
+.reflection-log {
+  background: rgba(10, 10, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 1.8rem 1.6rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+  font-size: 0.9rem;
+}
+
+.log-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 1.4rem;
+}
+
+.log-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.4rem;
+}
+
+.log-list li {
+  margin-bottom: 0.6rem;
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.log-list li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.7;
+}
+
+.log-list span {
+  color: #f3c77e;
+}
+
+.log-footer {
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+.next-btn {
+  display: inline-block;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+.fake-btn:hover {
+  background: #ff4444;
+  color: #fff;
+}
+
+.reflection-page nav a {
+  color: #fff !important;
+  opacity: 0.75;
+}
+

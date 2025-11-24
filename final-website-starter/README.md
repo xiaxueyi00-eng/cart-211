@@ -1,6 +1,6 @@
-# Final Website Starter
+# FILTERED SELF : A SYSTEM OF CONTROL
 
-A clean VS Code starter for your final web design project.
+A website
 
 ## Quick Start
 1. Open this folder in **VS Code**.

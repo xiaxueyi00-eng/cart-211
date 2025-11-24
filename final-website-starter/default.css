@@ -440,17 +440,7 @@ header {
   opacity: 0.5;
   filter: brightness(2);
 }
-.next-btn {
-  display: block;
-  width: max-content;
-  margin: 80px auto 80px auto;
-  padding: 12px 24px;
-  border-radius: 12px;
-  background: rgba(37, 72, 107, 0.12);
-  color: #000;
-  text-decoration: none;
-  font-size: 16px;
-}
+
 
 /* PAGE FOUR : SCROLLING PAGE
 ----------------------------------------*/
@@ -502,7 +492,8 @@ header {
   margin-top: 6px;
   font-size: 14px;
   line-height: 1.5;
-}s
+}
+
 .feed-item .feed-text {
   position: relative;
 }
@@ -520,37 +511,21 @@ header {
   font-size: 12px;
   color: #c9629b;
   margin-left: 4px;
+
 }
+.scroll-end-btn {
+  display: none;
+  margin: 40px auto;
+  padding: 8px 18px;
 
-.start-btn {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
 
-  padding: 40px 80px;
-  background: #e4b3cb6a;
+  border: 1px solid #999;
+  border-radius: 6px;
 
-
-  color: #ed5781;
-  font-size: 32px;
-  letter-spacing: 2px;
-
-  cursor: pointer;
-  z-index: 9999;
-  border-radius: 12px;
-box-shadow:
-  0 0 35px rgba(237, 87, 129, 0.85),
-  0 0 70px rgba(237, 87, 129, 0.55);
-
-  transition: transform 0.25s ease;
-}
-
-.start-btn:hover {
-  transform: translate(-50%, -50%) scale(1.05);
-}
-.start-btn:hover {
-  background: rgba(255,255,255,0.15);
+  background: #f2f2f2;
 }
 /* PAGE FIVE : TRACKING PAGE
 ----------------------------------------*/
@@ -1060,7 +1035,7 @@ box-shadow:
   border-radius: 18px;
   padding: 1.8rem 1.6rem;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 40px rgba(177, 142, 142, 0.35);
   font-size: 0.9rem;
 }
 
@@ -1102,20 +1077,13 @@ box-shadow:
 }
 
 .next-btn {
-  display: inline-block;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  padding-bottom: 0.15rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-}
-.fake-btn:hover {
-  background: #ff4444;
+  display: block;
+  margin: 40px auto;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.12);
   color: #fff;
-}
-
-.reflection-page nav a {
-  color: #fff !important;
-  opacity: 0.75;
+  text-decoration: none;
+  width: fit-content;
 }
 

@@ -8,93 +8,31 @@
 </head>
 
 <body class="tracking-page">
-  <div class="scanline"></div>
 
   <header>
-       <nav>
+    <nav>
       <a href="index.html">INDEX</a>
       <a href="bio.html">LIKE</a>
       <a href="searching.html">SEARCH</a>
       <a href="scrolling.html">SCROLLING</a>
-      <a href="tracking.html">TRACKING</a>
+      <a href="tracking.html" class="active">TRACKING</a>
       <a href="recommendation.html">RECOMMENDATION</a>
       <a href="distortion.html">LOSS OF CONTROL</a>
       <a href="loss.html">LOSS OF CONTROL</a>
-      <a href="Reflection.html"> Rerflection</a>
-      <a href="final.html" class="active">FINAL</a>
+      <a href="Reflection.html">Reflection</a>
+      <a href="final.html">FINAL</a>
     </nav>
   </header>
 
   <h1 class="track-title">TRACKING</h1>
   <p class="track-desc">The system is analyzing your behaviour…</p>
 
-  <canvas id="trackCanvas"></canvas>
-  <div id="data-points"></div>
 
-  <div class="track-hint">Collecting behaviour data…</div>
-  <script>
-
-const trackSound = new Audio("assets/sounds/sound1.wav");
-trackSound.volume = 0.15;
-const canvas = document.getElementById("trackCanvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-let mouse = { x: null, y: null };
-
-class Particle {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.size = Math.random() * 4 + 1;
-    this.speedX = (Math.random() - 0.5) * 3;
-    this.speedY = (Math.random() - 0.5) * 3;
-    this.opacity = 1;
-  }
-
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    this.opacity -= 0.02;
-  }
-
-  draw() {
-    ctx.fillStyle = `rgba(255,255,255,${this.opacity})`;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-  }
-}
-
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  particles.forEach((p, i) => {
-    p.update();
-    p.draw();
-    if (p.opacity <= 0) particles.splice(i, 1);
-  });
-
-  requestAnimationFrame(animateParticles);
-}
-
-window.addEventListener("mousemove", (e) => {
-  mouse.x = e.x;
-  mouse.y = e.y;
-
-  for (let i = 0; i < 6; i++) {
-    particles.push(new Particle(mouse.x, mouse.y));
-  }
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script src="tracking_cam.js"></script>
 
 
-  trackSound.currentTime = 0;
-  trackSound.play();
-});
-
-animateParticles();
-  </script>
+  <script src="tracking_particles.js"></script>
 
 </body>
+</html>

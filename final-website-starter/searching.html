@@ -2,135 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SEARCH</title>
+  <title>TRACKING</title>
   <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="tracking.css">
   <style>
-
-    .search-bg-surveil {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -3;
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
     }
   </style>
 </head>
 
-<body class="search-page">
+<body>
 
-<!-- p5 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+<script src="tracking_cam.js"></script>
 
-<div class="search-bg-surveil"></div>
-
-<header>
-  <nav>
-    <a href="index.html">INDEX</a>
-    <a href="bio.html">LIKE</a>
-    <a href="searching.html">SEARCH</a>
-    <a href="scrolling.html">SCROLLING</a>
-    <a href="tracking.html">TRACKING</a>
-    <a href="recommendation.html">RECOMMENDATION</a>
-    <a href="distortion.html">LOSS OF CONTROL</a>
-    <a href="loss.html">LOSS OF CONTROL</a>
-    <a href="Reflection.html">Rerflection</a>
-    <a href="final.html" class="active">FINAL</a>
-  </nav>
-</header>
-
-<main class="search-wrap">
-  <h1 id="searchTitle" class="title">SEARCH</h1>
-
-  <div class="search-box">
-    <div class="search-icon">🔍</div>
-    <input id="searchInput" type="text" placeholder="Type to search..." autocomplete="off">
-  </div>
-
-  <div id="results"></div>
-
-  <ul class="suggest">
-    <li>People near you</li>
-    <li>Trending topics for users like you</li>
-    <li>Based on your recent behaviour</li>
-    <li>Similar users also searched:</li>
-    <li>→ Privacy settings</li>
-  </ul>
-</main>
-
-<script>
-
-
-const input = document.getElementById("searchInput");
-
-const autoText =
-"system is analyzing your search patterns... extracting behavioural signals... detecting interest shifts... predicting your next intention...";
-
-let autoIndex = 0;
-
-function autoType() {
-  if (autoIndex < autoText.length) {
-    input.value += autoText.charAt(autoIndex);
-    input.dispatchEvent(new Event("input"));
-    autoIndex++;
-    setTimeout(autoType, 80);
-  }
-}
-
-window.addEventListener("load", () => {
-  setTimeout(autoType, 700);
-});
-
-const results = document.getElementById("results");
-const title = document.getElementById("searchTitle");
-const body = document.body;
-
-function playResultAnimation(el) {
-  el.classList.remove("magictime", "slideDownReturn", "active");
-  void el.offsetWidth;
-  el.classList.add("active", "magictime", "slideDownReturn");
-}
-
-let typingTimer;
-const delay = 800;
-
-function delayedFlashTitle() {
-  clearTimeout(typingTimer);
-  typingTimer = setTimeout(() => {
-    flashTitle();
-  }, delay);
-}
-
-function flashTitle() {
-  title.classList.remove("magictime", "puffIn");
-  void title.offsetWidth;
-  title.classList.add("magictime", "puffIn");
-}
-
-function flashBackground() {
-  body.classList.add("typing");
-  setTimeout(() => {
-    body.classList.remove("typing");
-  }, 250);
-}
-
-input.addEventListener("input", () => {
-  const value = input.value.trim();
-
-  if (!value) {
-    results.textContent = "";
-    results.classList.remove("active");
-    return;
-  }
-
-  playResultAnimation(results);
-  delayedFlashTitle();
-  flashBackground();
-
-  scatterText(value);
-});
-</script>
-
-<script src="sketch.js"></script>
 </body>
 </html>

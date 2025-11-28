@@ -12,3 +12,4 @@ A website
 - Global colors and spacing are in `:root` CSS variables.
 - Add images to `assets/images`. Replace placeholders.
 - Update the manifesto text in the About section.
+https://editor.p5js.org/kelseybrod/sketches/o9gRxZBzG

@@ -1,49 +1,51 @@
-
-
-var videoScale = 16;
-var cols, rows;
-var video;
+let video;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  const container = document.getElementById("camera-container");
+  const w = container.offsetWidth || 640;
+  const h = container.offsetHeight || 480;
 
-  cols = floor(width / videoScale);
-  rows = floor(height / videoScale);
+  let c = createCanvas(w, h);
+  c.parent(container);
+
+
+  c.elt.getContext('2d', { willReadFrequently: true });
 
   video = createCapture(VIDEO);
-  video.size(cols, rows);
+  video.size(width, height);
   video.hide();
 }
 
 function draw() {
-  background(0);
+  clear();
+
+  if (!video.width || !video.height) return;
+
   video.loadPixels();
+  loadPixels();
 
-  noStroke();
-  rectMode(CENTER);
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      let index = (x + y * width) * 4;
+      let r = video.pixels[index + 0];
+      let g = video.pixels[index + 1];
+      let b = video.pixels[index + 2];
+      let gray = (r + g + b) / 3;
 
-  for (var i = 0; i < cols; i++) {
-    for (var j = 0; j < rows; j++) {
-
-      var loc = ((cols - i - 1) + j * cols) * 4;
-
-      var r = video.pixels[loc];
-      var g = video.pixels[loc + 1];
-      var b = video.pixels[loc + 2];
-
-      var brightness = (r + g + b) / 3;
-
-      var sz = map(brightness, 0, 255, 0, videoScale);
-
-      fill(255);
-      var x = i * videoScale;
-      var y = j * videoScale;
-
-      rect(x + videoScale / 2, y + videoScale / 2, sz, sz);
+      pixels[index + 0] = gray;
+      pixels[index + 1] = gray;
+      pixels[index + 2] = gray;
+      pixels[index + 3] = 255;
     }
   }
+
+  updatePixels();
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  const container = document.getElementById("camera-container");
+  const w = container.offsetWidth;
+  const h = container.offsetHeight;
+  resizeCanvas(w, h);
+  if (video) video.size(w, h);
 }

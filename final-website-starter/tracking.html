@@ -9,30 +9,37 @@
 
 <body class="tracking-page">
 
-  <header>
-    <nav>
-      <a href="index.html">INDEX</a>
-      <a href="bio.html">LIKE</a>
-      <a href="searching.html">SEARCH</a>
-      <a href="scrolling.html">SCROLLING</a>
-      <a href="tracking.html" class="active">TRACKING</a>
-      <a href="recommendation.html">RECOMMENDATION</a>
-      <a href="distortion.html">LOSS OF CONTROL</a>
-      <a href="loss.html">LOSS OF CONTROL</a>
-      <a href="Reflection.html">Reflection</a>
-      <a href="final.html">FINAL</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="index.html">INDEX</a>
+    <a href="bio.html">LIKE</a>
+    <a href="searching.html">SEARCH</a>
+    <a href="scrolling.html">SCROLLING</a>
+    <a href="tracking.html" class="active">TRACKING</a>
+    <a href="recommendation.html">RECOMMENDATION</a>
+    <a href="distortion.html">LOSS OF CONTROL</a>
+    <a href="loss.html">LOSS OF CONTROL</a>
+    <a href="Reflection.html">Reflection</a>
+    <a href="final.html">FINAL</a>
+  </nav>
 
-  <h1 class="track-title">TRACKING</h1>
-  <p class="track-desc">The system is analyzing your behaviour…</p>
+  <div id="rec-indicator">REC <div id="rec-dot"></div></div>
+  <div id="hud-info">
+    AI Vision System Active<br>
+    Tracking subject…<br>
+    Signal: Stable
+  </div>
+
+
+
+  <div class="scan-overlay"></div>
+
+
+  <main></main>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+
   <script src="tracking_cam.js"></script>
-
-
-  <script src="tracking_particles.js"></script>
 
 </body>
 </html>

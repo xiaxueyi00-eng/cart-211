@@ -5,7 +5,9 @@
   <title>SCROLLING</title>
   <link rel="stylesheet" href="default.css">
 </head>
-
+  <video class="bg-video" autoplay muted loop playsinline>
+  <source src="assets/video2.mp4" type="video/mp4" />
+</video>
 <body>
 
 
@@ -88,5 +90,38 @@
 <div class="btn-wrapper">
   <a href="tracking.html" class="scroll-end-btn">Next</a>
 </div>
+<script>
+const btn = document.querySelector('.scroll-end-btn');
+let scrollSpeed = 0.5;
+
+function autoScroll() {
+  window.scrollBy(0, scrollSpeed);
+
+  const distanceToBottom = document.body.scrollHeight - (window.innerHeight + window.scrollY);
+
+  if (distanceToBottom <= 0) {
+
+    btn.style.display = 'inline-block';
+    btn.style.opacity = '1';
+  } else if (distanceToBottom <= 200) {
+
+    btn.style.display = 'inline-block';
+    btn.style.opacity = '0.3';
+  }
+
+  if (distanceToBottom > 0) {
+    requestAnimationFrame(autoScroll);
+  }
+}
+
+window.addEventListener('load', () => {
+  setTimeout(autoScroll, 500);
+});
+autoScroll();
+</script>
+
+
+</script>
+</script>
 </body>
 </html>

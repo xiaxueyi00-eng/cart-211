@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>TRACKING</title>
   <link rel="stylesheet" href="default.css">
   <link rel="stylesheet" href="tracking.css">
@@ -9,18 +9,38 @@
 
 <body class="tracking-page">
 
-  <nav>
+  <header>
+  <nav class="menu-desktop">
     <a href="index.html">INDEX</a>
     <a href="bio.html">LIKE</a>
     <a href="searching.html">SEARCH</a>
     <a href="scrolling.html">SCROLLING</a>
-    <a href="tracking.html" class="active">TRACKING</a>
+    <a href="tracking.html">TRACKING</a>
     <a href="recommendation.html">RECOMMENDATION</a>
     <a href="distortion.html">LOSS OF CONTROL</a>
     <a href="loss.html">LOSS OF CONTROL</a>
-    <a href="Reflection.html">Reflection</a>
-    <a href="final.html">FINAL</a>
+    <a href="Reflection.html">REFLECTION</a>
+    <a href="final.html" class="active">FINAL</a>
   </nav>
+
+  <div class="hamburger-menu">
+    <button>&#9776;</button>
+  </div>
+
+  <div class="menu-overlay">
+    <button class="close-menu">&times;</button>
+    <a href="index.html">INDEX</a>
+    <a href="bio.html">LIKE</a>
+    <a href="searching.html">SEARCH</a>
+    <a href="scrolling.html">SCROLLING</a>
+    <a href="tracking.html">TRACKING</a>
+    <a href="recommendation.html">RECOMMENDATION</a>
+    <a href="distortion.html">LOSS OF CONTROL</a>
+    <a href="loss.html">LOSS OF CONTROL</a>
+    <a href="Reflection.html">REFLECTION</a>
+    <a href="final.html" class="active">FINAL</a>
+  </div>
+</header>
 
   <div id="rec-indicator">REC <div id="rec-dot"></div></div>
   <div id="hud-info">
@@ -29,17 +49,45 @@
     Signal: Stable
   </div>
 
-
-
-  <div class="scan-overlay"></div>
-
+<div id="camera-container"></div>
+<div class="scan-overlay"></div>
+<div id="rec-indicator">REC <div id="rec-dot"></div></div>
+<div id="hud-info">
+  AI Vision System Active<br>
+  Tracking subject…<br>
+  Signal: Stable
+</div>
+<div id="monitor-warning">You are being monitored</div>
 
   <main></main>
 
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
-
   <script src="tracking_cam.js"></script>
+ <script>
+const hamburger = document.querySelector('.hamburger-menu button');
+const menuOverlay = document.querySelector('.menu-overlay');
+const closeMenu = document.querySelector('.close-menu');
+
+hamburger.addEventListener('click', () => {
+  menuOverlay.classList.add('active');
+});
+
+closeMenu.addEventListener('click', () => {
+  menuOverlay.classList.remove('active');
+});
+setTimeout(() => {
+  const warning = document.getElementById("monitor-warning");
+  warning.classList.add("show");
+}, 3000);
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const warning = document.getElementById("monitor-warning");
+        if(warning){
+          warning.classList.add("show");
+        }
+      }, 3000);
+    });
+  </script>
 
 </body>
 </html>

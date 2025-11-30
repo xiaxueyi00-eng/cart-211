@@ -14,18 +14,36 @@
 
 
 <header>
-   <nav>
-      <a href="index.html">INDEX</a>
-      <a href="bio.html">LIKE</a>
-      <a href="searching.html">SEARCH</a>
-      <a href="scrolling.html">SCROLLING</a>
-      <a href="tracking.html">TRACKING</a>
-      <a href="recommendation.html">RECOMMENDATION</a>
-      <a href="distortion.html">LOSS OF CONTROL</a>
-      <a href="loss.html">LOSS OF CONTROL</a>
-      <a href="Reflection.html"> Rerflection</a>
-      <a href="final.html" class="active">FINAL</a>
-    </nav>
+  <nav class="menu-desktop">
+    <a href="index.html">INDEX</a>
+    <a href="bio.html">LIKE</a>
+    <a href="searching.html">SEARCH</a>
+    <a href="scrolling.html">SCROLLING</a>
+    <a href="tracking.html">TRACKING</a>
+    <a href="recommendation.html">RECOMMENDATION</a>
+    <a href="distortion.html">LOSS OF CONTROL</a>
+    <a href="loss.html">LOSS OF CONTROL</a>
+    <a href="Reflection.html">REFLECTION</a>
+    <a href="final.html" class="active">FINAL</a>
+  </nav>
+
+  <div class="hamburger-menu">
+    <button>&#9776;</button>
+  </div>
+
+  <div class="menu-overlay">
+    <button class="close-menu">&times;</button>
+    <a href="index.html">INDEX</a>
+    <a href="bio.html">LIKE</a>
+    <a href="searching.html">SEARCH</a>
+    <a href="scrolling.html">SCROLLING</a>
+    <a href="tracking.html">TRACKING</a>
+    <a href="recommendation.html">RECOMMENDATION</a>
+    <a href="distortion.html">LOSS OF CONTROL</a>
+    <a href="loss.html">LOSS OF CONTROL</a>
+    <a href="Reflection.html">REFLECTION</a>
+    <a href="final.html" class="active">FINAL</a>
+  </div>
 </header>
 
 <section class="like-page">
@@ -60,30 +78,26 @@
   <div class="counter">Data Collected: 000</div>
 <script>
 
-const likeHeart = document.querySelector(".stack .heart");
 
-likeHeart.addEventListener("click", () => {
-  const float = document.createElement("div");
-  float.classList.add("floating-heart");
-  float.textContent = "❤️";
+const hamburger = document.querySelector('.hamburger-menu button');
+const menuOverlay = document.querySelector('.menu-overlay');
+const closeMenu = document.querySelector('.close-menu');
 
-  const rect = likeHeart.getBoundingClientRect();
-  float.style.left = rect.left + rect.width / 2 + "px";
-  float.style.top = rect.top + rect.height / 2 + "px";
-
-  document.body.appendChild(float);
-
-  setTimeout(() => float.remove(), 1000);
+hamburger.addEventListener('click', () => {
+  menuOverlay.classList.add('active');
+});
+closeMenu.addEventListener('click', () => {
+  menuOverlay.classList.remove('active');
 });
 
 
-
-let count = 0;
-let index = 0;
-
+const likeHeart = document.querySelector(".stack .heart"); // ⚠️ 必须先定义
 const counter = document.querySelector(".counter");
 const popup = document.getElementById("popup");
 const popupImg = document.getElementById("popup-img");
+
+let count = 0;
+let index = 0;
 
 const images = [
   "assets/1.png", "assets/2.png", "assets/3.png", "assets/4.png",
@@ -95,8 +109,21 @@ const images = [
 
 likeHeart.addEventListener("click", () => {
 
+  const float = document.createElement("div");
+  float.classList.add("floating-heart");
+  float.textContent = "❤️";
+
+  const rect = likeHeart.getBoundingClientRect();
+  float.style.left = rect.left + rect.width / 2 + "px";
+  float.style.top = rect.top + rect.height / 2 + "px";
+
+  document.body.appendChild(float);
+  setTimeout(() => float.remove(), 1000);
+
+
   count++;
   counter.textContent = `Data Collected: ${String(count).padStart(3, '0')}`;
+
 
   popupImg.src = images[index];
   popup.classList.add("show");
@@ -107,6 +134,7 @@ likeHeart.addEventListener("click", () => {
 
   index = (index + 1) % images.length;
 });
+
 
 popup.addEventListener("click", () => {
   popup.classList.remove("show");

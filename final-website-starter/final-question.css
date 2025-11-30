@@ -1,56 +1,48 @@
-/* ---------- FINAL PAGE ---------- */
-body.final-page {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow: hidden;
-  font-family: "Inter", sans-serif;
-  color: #fff;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-/* ---------- MOVING BACKGROUND ---------- */
+/* ---------- FINAL PAGE BACKGROUND EFFECT ---------- */
 .bg-move {
   position: absolute;
   top: -8%;
   left: -8%;
   width: 116%;
   height: 116%;
-
   background-image: url('assets/final.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  filter: blur(14px) brightness(0.85);
+  filter: blur(14px) brightness(0.85) saturate(1.1);
   opacity: 0.85;
-
   z-index: -1;
-
-
-  animation: bgBreathMove 14s ease-in-out infinite alternate;
 }
 
-@keyframes bgBreathMove {
-  0% {
-    transform: translate(0px, 0px) scale(1.05);
-  }
-  25% {
-    transform: translate(-35px, 12px) scale(1.10);
-  }
-  50% {
-    transform: translate(20px, -25px) scale(1.13);
-  }
-  75% {
-    transform: translate(-15px, 18px) scale(1.08);
-  }
-  100% {
-    transform: translate(30px, -10px) scale(1.12);
-  }
+
+.bg-move::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.06), transparent 70%);
+  pointer-events: none;
+  animation: lightMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes lightMove {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(30px, 20px) scale(1.02); }
+  100% { transform: translate(-20px, -15px) scale(1.03); }
+}
+
+
+.bg-move::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('assets/final.png');
+  opacity: 0.05;
+  pointer-events: none;
 }
 /* ---------- TEXT ---------- */
 .final-content {

@@ -116,6 +116,16 @@ header {
 
   100% { transform: translate(0, 0) scale(1); filter: blur(28px) brightness(100%); }
 }
+
+/* ===== Desktop Navigation ===== */
+nav .menu-desktop {
+    display: flex;
+    gap: 20px;
+}
+
+.hamburger-menu {
+    display: none;
+}
 /* PAGE TWO : LIKE PAGE
 ----------------------------------------*/
 
@@ -281,27 +291,22 @@ header {
 
 /* ⭐ Click Floating Heart Animation */
 .floating-heart {
-  position: absolute;
-  font-size: 40px;
-  color: #ff3366;
+  position: fixed;
+  font-size: 24px;
   pointer-events: none;
-  animation: floatUp 1s ease-out forwards;
-  opacity: 1;
-  z-index: 99999;
+  transform: translate(-50%, -50%);
+  animation: floatUp 1s forwards;
+  z-index: 1000;
 }
 
 @keyframes floatUp {
   0% {
-    transform: translateY(0) scale(1);
     opacity: 1;
-  }
-  50% {
-    transform: translateY(-40px) scale(1.4);
-    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
   }
   100% {
-    transform: translateY(-80px) scale(1);
     opacity: 0;
+    transform: translate(-50%, -150px) scale(1.5);
   }
 }
 
@@ -551,91 +556,126 @@ header {
   background: #f5f5f5;
   transform: translateY(-2px);
 }
-/* PAGE FIVE : TRACKING PAGE
-----------------------------------------*/
+/* PAGE FIVE : TRACKING PAGE */
 body.tracking-page {
   margin: 0;
-  background: #000;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background: #111;
+  color: #fff;
   overflow: hidden;
   height: 100vh;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  position: relative;
 }
 
-
-canvas {
-  position: fixed;
+/* ---- Navigation ---- */
+body.tracking-page nav {
+  background: none; /* transparent for this page only */
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+  right: 0;
+  display: flex;
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  z-index: 10;
 }
 
-
-.tracking-page nav a {
-  color: #fff !important;
+body.tracking-page nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
   opacity: 0.8;
 }
-.tracking-page nav a:hover {
-  opacity: 1;
+
+body.tracking-page nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
-/* ====== REC  ====== */
+/* ---- REC Indicator ---- */
 #rec-indicator {
-  position: fixed;
-  top: 25px;
-  left: 30px;
-  color: white;
-  font-size: 18px;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-weight: bold;
+  color: red;
+  z-index: 10;
   display: flex;
   align-items: center;
-  gap: 8px;
-  opacity: 0.9;
-  z-index: 10;
+  gap: 0.3rem;
 }
 
 #rec-dot {
   width: 10px;
   height: 10px;
+  background: red;
   border-radius: 50%;
-  background: #ff2b2b;
-  animation: blink 1.2s infinite ease-in-out;
+  animation: recBlink 1s infinite;
 }
 
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.2; }
-  100% { opacity: 1; }
+@keyframes recBlink {
+  0%,50%,100% { opacity: 1; }
+  25%,75% { opacity: 0.2; }
 }
 
-/* ======  HUD ====== */
+/* ---- HUD Info ---- */
 #hud-info {
-  position: fixed;
-  top: 25px;
-  right: 30px;
-  text-align: right;
-  color: rgba(255,255,255,0.7);
-  font-size: 14px;
-  line-height: 1.4em;
+  position: absolute;
+  top: 5rem;
+  left: 2rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
   z-index: 10;
-  letter-spacing: 0.5px;
 }
 
-/* ======  Overlay ====== */
+/* ---- Camera Canvas ---- */
+#camera-container canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.8);
+}
+
+/* ---- Scan Overlay ---- */
 .scan-overlay {
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
   background: repeating-linear-gradient(
-    to bottom,
     rgba(255,255,255,0.03) 0px,
     rgba(255,255,255,0.03) 1px,
-    transparent 3px,
-    transparent 4px
+    transparent 2px,
+    transparent 3px
   );
-  pointer-events: none;
   z-index: 5;
-  opacity: 0.3;
+}
+
+/* ---- Monitor Warning ---- */
+#monitor-warning {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.5rem;
+  color: #ff4444;
+  text-shadow: 0 0 10px #ff0000;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  z-index: 15;
+  pointer-events: none;
+  text-align: center;
+}
+
+#monitor-warning.show {
+  opacity: 1;
 }
 /* END OF PAGE 5 */
 
@@ -819,13 +859,14 @@ canvas {
 }
 
 .liquid {
+  filter: blur(6px) contrast(180%) brightness(150%);
+  transform: scale(1) skewX(0deg);
   transition: filter 0.15s ease-out, transform 0.15s ease-out;
 }
 
 .liquid:hover {
-  filter: blur(6px) contrast(180%) brightness(150%);
-  transform: scale(1.1) skewX(8deg);
-  transition: 0.2s;
+  filter: blur(0px) contrast(100%) brightness(100%);
+  transform: scale(1.05) skewX(0deg);
 }
 
 body {
@@ -1080,4 +1121,115 @@ body {
 .next-btn:hover {
   background: linear-gradient(90deg, #ff7b7b, #ff4c4c);
   transform: scale(1.05);
+}
+
+
+
+
+/* ---------- HEADER & NAV ---------- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  box-sizing: border-box;
+}
+
+.menu-desktop {
+  display: flex;
+  gap: 20px;
+}
+.menu-desktop a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #000;
+}
+.menu-desktop a:hover {
+  color: #666;
+}
+
+
+.hamburger-menu {
+  display: none;
+}
+.hamburger-menu button {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  font-size: 1.8em;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(160deg, #fff7ee, #ffe1b3);
+  color: black;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.menu-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+.menu-overlay a {
+  font-size: 24px;
+  margin: 15px 0;
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 0.8s ease forwards;
+}
+.menu-overlay a:hover {
+  color: #ff9900;
+  transform: translateY(-4px);
+  transition: transform 0.3s;
+}
+.close-menu {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  background: none;
+  border: none;
+  font-size: 2.5em;
+  color: #111;
+  cursor: pointer;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 780px) {
+  .menu-desktop { display: none; }
+  .hamburger-menu { display: flex; }
+}
+
+@media (min-width: 780px) {
+  .menu-overlay { display: none !important; }
+}
+
+
+.like-page {
+  margin-top: 80px;
+  padding: 40px;
+  text-align: center;
 }

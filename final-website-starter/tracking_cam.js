@@ -1,15 +1,8 @@
 let video;
 
 function setup() {
-  const container = document.getElementById("camera-container");
-  const w = container.offsetWidth || 640;
-  const h = container.offsetHeight || 480;
-
-  let c = createCanvas(w, h);
-  c.parent(container);
-
-
-  c.elt.getContext('2d', { willReadFrequently: true });
+  let canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent("camera-container");
 
   video = createCapture(VIDEO);
   video.size(width, height);
@@ -17,35 +10,21 @@ function setup() {
 }
 
 function draw() {
-  clear();
+  background(0);
 
-  if (!video.width || !video.height) return;
+  image(video, 0, 0, width, height);
+  filter(GRAY);
 
-  video.loadPixels();
   loadPixels();
-
-  for (let y = 0; y < height; y++) {
-    for (let x = 0; x < width; x++) {
-      let index = (x + y * width) * 4;
-      let r = video.pixels[index + 0];
-      let g = video.pixels[index + 1];
-      let b = video.pixels[index + 2];
-      let gray = (r + g + b) / 3;
-
-      pixels[index + 0] = gray;
-      pixels[index + 1] = gray;
-      pixels[index + 2] = gray;
-      pixels[index + 3] = 255;
-    }
+  for (let i = 0; i < pixels.length; i+=4) {
+    let rand = random(-10,10);
+    pixels[i] = pixels[i]+rand;
+    pixels[i+1] = pixels[i+1]+rand;
+    pixels[i+2] = pixels[i+2]+rand;
   }
-
   updatePixels();
 }
 
 function windowResized() {
-  const container = document.getElementById("camera-container");
-  const w = container.offsetWidth;
-  const h = container.offsetHeight;
-  resizeCanvas(w, h);
-  if (video) video.size(w, h);
+  resizeCanvas(windowWidth, windowHeight);
 }

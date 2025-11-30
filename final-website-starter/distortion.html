@@ -7,69 +7,69 @@
   <link rel="stylesheet" href="distortion.css">
 </head>
 
-<body class="distortion-page">
+<body class="distortion-page custom-cursor-page7">
   <video class="bg-video" autoplay muted loop playsinline>
-  <source src="assets/video4.mp4" type="video/mp4" />
-</video>
-<header>
-  <nav class="menu-desktop">
-    <a href="index.html">INDEX</a>
-    <a href="bio.html">LIKE</a>
-    <a href="searching.html">SEARCH</a>
-    <a href="scrolling.html">SCROLLING</a>
-    <a href="tracking.html">TRACKING</a>
-    <a href="recommendation.html">RECOMMENDATION</a>
-    <a href="distortion.html">DISTORTION</a>
-    <a href="loss.html">LOSS OF CONTROL</a>
-    <a href="Reflection.html">REFLECTION</a>
-    <a href="final.html" class="active">FINAL</a>
-  </nav>
+    <source src="assets/video4.mp4" type="video/mp4" />
+  </video>
 
-  <div class="hamburger-menu">
-    <button>&#9776;</button>
-  </div>
 
-  <div class="menu-overlay">
-    <button class="close-menu">&times;</button>
-    <a href="index.html">INDEX</a>
-    <a href="bio.html">LIKE</a>
-    <a href="searching.html">SEARCH</a>
-    <a href="scrolling.html">SCROLLING</a>
-    <a href="tracking.html">TRACKING</a>
-    <a href="recommendation.html">RECOMMENDATION</a>
-    <a href="distortion.html">DISTORTION</a>
-    <a href="loss.html">LOSS OF CONTROL</a>
-    <a href="Reflection.html">REFLECTION</a>
-    <a href="final.html" class="active">FINAL</a>
-  </div>
-</header>
+  <header>
+    <nav class="menu-desktop">
+      <a href="index.html">INDEX</a>
+      <a href="bio.html">LIKE</a>
+      <a href="searching.html">SEARCH</a>
+      <a href="scrolling.html">SCROLLING</a>
+      <a href="tracking.html">TRACKING</a>
+      <a href="recommendation.html">RECOMMENDATION</a>
+      <a href="distortion.html" class="active">DISTORTION</a>
+      <a href="loss.html">LOSS OF CONTROL</a>
+      <a href="Reflection.html">REFLECTION</a>
+      <a href="final.html">FINAL</a>
+    </nav>
 
-</header>
-</body>
-<div class="glitch-title liquid" data-text="DISTORTION">DISTORTION</div>
+    <div class="hamburger-menu">
+      <button>&#9776;</button>
+    </div>
 
-<p class="distort-text liquid">
-  Your identity is being reconstructed.<br>
-  Every action becomes a data point.<br>
-  Every preference becomes a prediction.<br>
-  Every expression becomes a form designed by algorithms.
-</p>
+    <div class="menu-overlay">
+      <button class="close-menu">&times;</button>
+      <a href="index.html">INDEX</a>
+      <a href="bio.html">LIKE</a>
+      <a href="searching.html">SEARCH</a>
+      <a href="scrolling.html">SCROLLING</a>
+      <a href="tracking.html">TRACKING</a>
+      <a href="recommendation.html">RECOMMENDATION</a>
+      <a href="distortion.html" class="active">DISTORTION</a>
+      <a href="loss.html">LOSS OF CONTROL</a>
+      <a href="Reflection.html">REFLECTION</a>
+      <a href="final.html">FINAL</a>
+    </div>
+  </header>
 
-<div class="glitch-layer"></div>
 
-<script src="distortion.js"></script>
-<script>
-  const hamburger = document.querySelector('.hamburger-menu button');
-  const menuOverlay = document.querySelector('.menu-overlay');
-  const closeMenu = document.querySelector('.close-menu');
+  <h1 class="distortion-title">DISTORTION</h1>
+  <p class="distortion-text">
+    Your identity is being reconstructed.<br>
+    Every action becomes a data point.<br>
+    Every preference becomes a prediction.<br>
+    Every expression becomes a form designed by algorithms.
+  </p>
 
-  hamburger.addEventListener('click', () => {
-    menuOverlay.classList.add('active');
-  });
+  <div class="glitch-layer"></div>
 
-  closeMenu.addEventListener('click', () => {
-    menuOverlay.classList.remove('active');
-  });
-</script>
+  <script src="distortion.js"></script>
+  <script>
+    const hamburger = document.querySelector('.hamburger-menu button');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const closeMenu = document.querySelector('.close-menu');
+
+    hamburger.addEventListener('click', () => {
+      menuOverlay.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      menuOverlay.classList.remove('active');
+    });
+  </script>
 </body>
 </html>

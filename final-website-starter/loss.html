@@ -3,80 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <title>LOSS OF CONTROL</title>
-
   <link rel="stylesheet" href="default.css">
 </head>
 
 <body class="loss-page">
-  <div class="crack"></div>
   <video class="bg-video" autoplay muted loop playsinline>
-  <source src="assets/video6.mp4" type="video/mp4" />
-</video>
-<header>
-  <nav class="menu-desktop">
-    <a href="index.html">INDEX</a>
-    <a href="bio.html">LIKE</a>
-    <a href="searching.html">SEARCH</a>
-    <a href="scrolling.html">SCROLLING</a>
-    <a href="tracking.html">TRACKING</a>
-    <a href="recommendation.html">RECOMMENDATION</a>
-    <a href="distortion.html">DISTORTION</a>
-    <a href="loss.html">LOSS OF CONTROL</a>
-    <a href="Reflection.html">REFLECTION</a>
-    <a href="final.html" class="active">FINAL</a>
-  </nav>
+    <source src="assets/video6.mp4" type="video/mp4" />
+  </video>
 
-  <div class="hamburger-menu">
-    <button>&#9776;</button>
+  <header>
+    <nav class="menu-desktop">
+      <a href="index.html">INDEX</a>
+      <a href="bio.html">LIKE</a>
+      <a href="searching.html">SEARCH</a>
+      <a href="scrolling.html">SCROLLING</a>
+      <a href="tracking.html">TRACKING</a>
+      <a href="recommendation.html">RECOMMENDATION</a>
+      <a href="distortion.html">DISTORTION</a>
+      <a href="loss.html" class="active">LOSS OF CONTROL</a>
+      <a href="Reflection.html">REFLECTION</a>
+      <a href="final.html">FINAL</a>
+    </nav>
+
+    <div class="hamburger-menu">
+      <button>&#9776;</button>
+    </div>
+
+    <div class="menu-overlay">
+      <button class="close-menu">&times;</button>
+      <a href="index.html">INDEX</a>
+      <a href="bio.html">LIKE</a>
+      <a href="searching.html">SEARCH</a>
+      <a href="scrolling.html">SCROLLING</a>
+      <a href="tracking.html">TRACKING</a>
+      <a href="recommendation.html">RECOMMENDATION</a>
+      <a href="distortion.html">DISTORTION</a>
+      <a href="loss.html" class="active">LOSS OF CONTROL</a>
+      <a href="Reflection.html">REFLECTION</a>
+      <a href="final.html">FINAL</a>
+    </div>
+  </header>
+
+  <div class="loss-center">
+    <h1 class="loss-title">LOSS OF CONTROL</h1>
+    <p class="loss-text">
+      Your actions are no longer processed.<br>
+      The system has taken control.
+    </p>
+    <button id="fakeBtn" class="fake-btn">PROCEED</button>
   </div>
-
-  <div class="menu-overlay">
-    <button class="close-menu">&times;</button>
-    <a href="index.html">INDEX</a>
-    <a href="bio.html">LIKE</a>
-    <a href="searching.html">SEARCH</a>
-    <a href="scrolling.html">SCROLLING</a>
-    <a href="tracking.html">TRACKING</a>
-    <a href="recommendation.html">RECOMMENDATION</a>
-    <a href="distortion.html">DISTORTION</a>
-    <a href="loss.html">LOSS OF CONTROL</a>
-    <a href="Reflection.html">REFLECTION</a>
-    <a href="final.html" class="active">FINAL</a>
-  </div>
-</header>
-
-</header>
-
- <div class="loss-center">
-  <h1 class="loss-title">LOSS OF CONTROL</h1>
-
-  <p class="loss-text">
-    Your actions are no longer processed.<br>
-    The system has taken control.
-  </p>
-
-  <button id="fakeBtn" class="fake-btn">PROCEED</button>
-</div>
 
   <div class="overlay-glitch"></div>
 
   <script>
 
-  const hamburger = document.querySelector('.hamburger-menu button');
-  const menuOverlay = document.querySelector('.menu-overlay');
-  const closeMenu = document.querySelector('.close-menu');
+    const hamburger = document.querySelector('.hamburger-menu button');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const closeMenu = document.querySelector('.close-menu');
 
-  hamburger.addEventListener('click', () => {
-    menuOverlay.classList.add('active');
-  });
+    hamburger.addEventListener('click', () => {
+      menuOverlay.classList.add('active');
+    });
 
-  closeMenu.addEventListener('click', () => {
-    menuOverlay.classList.remove('active');
-  });
+    closeMenu.addEventListener('click', () => {
+      menuOverlay.classList.remove('active');
+    });
+
 
     const btn = document.getElementById("fakeBtn");
-   btn.addEventListener("mouseover", () => {
-  btn.style.transform = `translate(${Math.random()*360 - 180}px, ${Math.random()*360 - 180}px)`;
-});
+    btn.addEventListener("mouseover", () => {
+      btn.style.transform = `translate(${Math.random()*360 - 180}px, ${Math.random()*360 - 180}px)`;
+    });
   </script>
-
+</body>
+</html>

@@ -129,151 +129,73 @@ nav .menu-desktop {
 }
 /* PAGE TWO : LIKE PAGE
 ----------------------------------------*/
-
-.like-page {
-  min-height: 100vh;
-    padding-top: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-
-  background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
-  background-size: 300% 300%;
-  animation: gradientMove 12s ease infinite;
-
+ body.like-page {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
   font-family: 'Inter', sans-serif;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+background: black;
 }
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-h1 {
-  margin: 20px 0;
-  text-align: center;
-}
-p {
-  max-width: 600px;
-  margin: 10px auto;
-  text-align: center;
-}
-.ui-card {
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(6px);
-  padding: 20px 24px;
-  border-radius: 22px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  margin-bottom: 40px;
-}
-/* Page Title */
-.title {
+.like-page .title {
   font-size: 3rem;
   font-weight: 200;
-  margin-bottom: 20px;
+  margin-bottom: 250px;
   opacity: 0.92;
 }
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  background: black;
+}
 
-/* Image Stack Layout */
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 50px;
+}
+
 .stack {
   position: relative;
-  display: inline-block;
-  margin-bottom: 30px;
 }
 
-.stack .heart {
-  margin-top: 10px;
-  font-size: 60px;
+.heart {
+  font-size: 80px;
   cursor: pointer;
-}
-.base-img {
-  width: 900px;
-  border-radius: 14px;
-  opacity: 0.95;
-}
-
-.top-img {
-  position: absolute;
-  width: 180px;
-  top: 20%;
-  left: 54%;
-  border-radius: 10px;
-  opacity: 0.92;
+  margin-bottom: 20px;
   transition: opacity 0.3s ease;
 }
-
-/* ❤️ Subtle, data-driven like interaction */
-.stack .heart {
-  position: absolute;
-  top: 104%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 80px;
-  opacity: 0.9;
-  cursor: pointer;
-  transition: opacity 0.35s ease;
-}
-.stack .heart:active {
-  opacity: 0.4;
-}
+.heart:active { opacity: 0.4; }
 
 .click-hint {
-  margin-top: 8px;
-  font-size: 2rem;
-  color: rgba(255, 85, 193, 0.85);
-  text-align: center;
-  opacity: 0;
-  animation: hintFade 3s ease forwards;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 
-
-@keyframes hintFade {
-  0% { opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-
-/* Supporting Text / Description */
-.info {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.95);
-  max-width: 420px;
-   margin-left: auto;
-  margin-right: auto;
-}
-
-/* Counter (Archive-like visual tone) */
 .counter {
-  margin-top: 12px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.9);
+  font-size: 1rem;
+  margin-top: 20px;
 }
-
-
-/* Popup (Memory / Archive Display) */
-
-.stack {
-  position: relative;
-}
-
 
 .popup {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
-
   transform: translate(-50%, -50%) scale(0.2);
   opacity: 0;
   pointer-events: none;
-
   transition: opacity 0.4s ease, transform 0.35s ease;
   z-index: 10;
 }
@@ -284,21 +206,12 @@ p {
   pointer-events: auto;
 }
 
-
 .popup-img {
-  width: 550px;
-  border-radius: 20px;
-
-  border: 4px solid rgba(255,255,255,0.85);
-  box-shadow:
-    0 6px 20px rgba(0,0,0,0.25),
-    0 2px 6px rgba(0,0,0,0.15);
-  filter: brightness(1.06) contrast(1.05) saturate(1.15);
-  backdrop-filter: blur(3px);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 10px;
 }
 
-/* ⭐ Click Floating Heart Animation */
 .floating-heart {
   position: fixed;
   font-size: 24px;
@@ -309,16 +222,9 @@ p {
 }
 
 @keyframes floatUp {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -150px) scale(1.5);
-  }
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -150px) scale(1.5); }
 }
-
 /* PAGE THREE : SEARCH PAGE
 ----------------------------------------*/
 .search-page {
@@ -581,6 +487,18 @@ p {
 
 
 /* PAGE FIVE : TRACKING PAGE */
+
+body.tracking-page .menu-desktop {
+  display: none;
+}
+
+body.tracking-page .hamburger-menu {
+  display: block;
+  position: absolute;
+  top: 0.8rem;
+  right: 1.5rem;
+  z-index: 20;
+}
 .bg-video {
   position: absolute;
   top: 0;
@@ -806,6 +724,7 @@ body.tracking-page nav a.active {
 
 
 /*Page Seven DISTORTION PAGE ===== */
+
 .custom-cursor-page {
   cursor: url('assets/mouse2.png') 16 16, auto;
 }
@@ -815,15 +734,13 @@ body.tracking-page nav a.active {
   cursor: pointer;
 }
 .distortion-page {
-  font-family: "Inter", sans-serif;
-  background: #000;
-  color: #fff;
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
   overflow: hidden;
   position: relative;
   text-align: center;
+  background: #000;
 }
-
 /* ==== GLITCH TITLE ==== */
 .distortion-page .distortion-title {
   position: absolute;
@@ -839,7 +756,7 @@ body.tracking-page nav a.active {
   animation: glitchShake 1s infinite;
 }
 .distortion-page .bg-video {
-  position: fixed;
+position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -895,6 +812,12 @@ body.tracking-page nav a.active {
 .distortion-page .distortion-title:hover,
 .distortion-page .distortion-text:hover {
   filter: blur(0px) contrast(100%) brightness(100%);
+}
+
+@media (max-width: 780px) {
+  .distortion-page .bg-video {
+    height: 100vh;
+  }
 }
 /* END OF PAGE 7 */
 

@@ -76,7 +76,28 @@
 }
 
 body {
-  overflow: hidden;
-  height: 100vh;
+  overflow-x: hidden;
+  height: auto;
+}
+.bg-move {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.hamburger-menu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
 }
 
+.hamburger-menu button {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}

@@ -10,6 +10,10 @@
 
 
 </body>
+<body class="like-page">
+  <video class="bg-video" autoplay muted loop playsinline>
+  <source src="assets/video9.mp4" type="video/mp4" />
+</video>
 
 
 <header>
@@ -53,20 +57,12 @@
   <h1 class="title animate__animated animate__zoomInRight animate__slow">
     LIKE
   </h1>
-
-  <div class="stack">
-
-
-     <div class="ui-card">
-    <div class="stack">
-        <img src="assets/ins.avif" class="base-img">
-
-        <div class="heart">❤️</div>
-<p class="click-hint">	“Try clicking the heart”</p>
-        <div class="popup" id="popup">
-          <img class="popup-img" id="popup-img">
-        </div>
-    </div>
+<div class="stack">
+  <div class="heart">❤️</div>
+  <p class="click-hint">Try clicking the heart</p>
+  <div class="popup" id="popup">
+    <img class="popup-img" id="popup-img">
+  </div>
 </div>
 
   <p class="info">
@@ -79,19 +75,7 @@
 <script>
 
 
-const hamburger = document.querySelector('.hamburger-menu button');
-const menuOverlay = document.querySelector('.menu-overlay');
-const closeMenu = document.querySelector('.close-menu');
-
-hamburger.addEventListener('click', () => {
-  menuOverlay.classList.add('active');
-});
-closeMenu.addEventListener('click', () => {
-  menuOverlay.classList.remove('active');
-});
-
-
-const likeHeart = document.querySelector(".stack .heart"); // ⚠️ 必须先定义
+const likeHeart = document.querySelector(".stack .heart");
 const counter = document.querySelector(".counter");
 const popup = document.getElementById("popup");
 const popupImg = document.getElementById("popup-img");
@@ -100,44 +84,49 @@ let count = 0;
 let index = 0;
 
 const images = [
-  "assets/1.png", "assets/2.png", "assets/3.png", "assets/4.png",
-  "assets/5.png", "assets/6.png", "assets/7.png", "assets/8.png",
-  "assets/9.png", "assets/10.png", "assets/11.png", "assets/12.png",
-  "assets/13.png", "assets/14.png", "assets/15.png", "assets/16.png",
-  "assets/17.png", "assets/18.png"
+  "assets/1.png","assets/2.png","assets/3.png","assets/4.png",
+  "assets/5.png","assets/6.png","assets/7.png","assets/8.png",
+  "assets/9.png","assets/10.png","assets/11.png","assets/12.png",
+  "assets/13.png","assets/14.png","assets/15.png","assets/16.png",
+  "assets/17.png","assets/18.png"
 ];
 
 likeHeart.addEventListener("click", () => {
-
   const float = document.createElement("div");
   float.classList.add("floating-heart");
   float.textContent = "❤️";
-
   const rect = likeHeart.getBoundingClientRect();
-  float.style.left = rect.left + rect.width / 2 + "px";
-  float.style.top = rect.top + rect.height / 2 + "px";
-
+  float.style.left = rect.left + rect.width/2 + "px";
+  float.style.top = rect.top + rect.height/2 + "px";
   document.body.appendChild(float);
   setTimeout(() => float.remove(), 1000);
 
-
   count++;
-  counter.textContent = `Data Collected: ${String(count).padStart(3, '0')}`;
-
+  counter.textContent = `Data Collected: ${String(count).padStart(3,'0')}`;
 
   popupImg.src = images[index];
   popup.classList.add("show");
 
-  if (index === images.length - 1) {
+  if(index === images.length - 1){
     counter.textContent = "Thanks for sharing yourself :)";
   }
 
   index = (index + 1) % images.length;
 });
 
-
 popup.addEventListener("click", () => {
   popup.classList.remove("show");
 });
 
+const hamburger = document.querySelector('.hamburger-menu button');
+const overlay = document.querySelector('.menu-overlay');
+const closeBtn = document.querySelector('.close-menu');
+
+hamburger.addEventListener('click', () => {
+  overlay.classList.add('active');
+});
+
+closeBtn.addEventListener('click', () => {
+  overlay.classList.remove('active');
+});
 </script>

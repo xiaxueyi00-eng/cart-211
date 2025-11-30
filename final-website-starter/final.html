@@ -12,7 +12,38 @@
 
 
   <div class="bg-move"></div>
+<header>
+  <nav class="menu-desktop">
+    <a href="index.html">INDEX</a>
+    <a href="bio.html">LIKE</a>
+    <a href="searching.html">SEARCH</a>
+    <a href="scrolling.html">SCROLLING</a>
+    <a href="tracking.html">TRACKING</a>
+    <a href="recommendation.html">RECOMMENDATION</a>
+    <a href="distortion.html">DISTORTION</a>
+    <a href="loss.html">LOSS OF CONTROL</a>
+    <a href="Reflection.html">REFLECTION</a>
+    <a href="final.html" class="active">FINAL</a>
+  </nav>
 
+  <div class="hamburger-menu">
+    <button>&#9776;</button>
+  </div>
+
+  <div class="menu-overlay">
+    <button class="close-menu">&times;</button>
+    <a href="index.html">INDEX</a>
+    <a href="bio.html">LIKE</a>
+    <a href="searching.html">SEARCH</a>
+    <a href="scrolling.html">SCROLLING</a>
+    <a href="tracking.html">TRACKING</a>
+    <a href="recommendation.html">RECOMMENDATION</a>
+    <a href="distortion.html">DISTORTION</a>
+    <a href="loss.html">LOSS OF CONTROL</a>
+    <a href="Reflection.html">REFLECTION</a>
+    <a href="final.html" class="active">FINAL</a>
+  </div>
+</header>
   <div class="final-content">
     <p class="final-label">FINAL QUESTION</p>
 
@@ -42,4 +73,17 @@
   </div>
 
 </body>
-</html>
+
+<script>
+  const hamburger = document.querySelector('.hamburger-menu button');
+  const overlay = document.querySelector('.menu-overlay');
+  const closeBtn = document.querySelector('.close-menu');
+
+  hamburger.addEventListener('click', () => {
+    overlay.classList.add('active');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('active');
+  });
+</script>

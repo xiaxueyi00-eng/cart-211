@@ -1,5 +1,10 @@
-
-/* PAGE ONE : INDEX (Hero Page)
+/*
+  Website CSS Styles
+  Author: Xueyi Xia
+  Structure: Page-by-page styles
+  Notes: Custom cursors, background videos, floating effects, etc.
+*/
+/* PAGE ONE : INDEX
 ----------------------------------------*/
 body {
     font-family: "Marmelad", sans-serif;
@@ -8,7 +13,7 @@ body {
     background: #fff;
     color: #111;
 }
-
+/* ---------- Shadowed Text  ---------- */
 .shadow-text {
   position: relative;
   display: inline-block;
@@ -24,6 +29,8 @@ body {
   filter: blur(26px);
   pointer-events: none;
 }
+
+/* ---------- Hero Section Layout ---------- */
 .hero {
   position: relative;
   height: 100vh;
@@ -34,6 +41,7 @@ body {
   text-align: center;
   overflow: hidden;
 }
+/* ---------- Hero Background  ---------- */
 .hero::before {
   content: "";
   position: absolute;
@@ -48,12 +56,14 @@ body {
 
   animation: trappedMove 4.5s cubic-bezier(.36,.07,.19,.97) infinite;
 }
+/* ---------- Main Title Text ---------- */
 .title {
   font-size: 3.4rem;
   letter-spacing: 0.02em;
   margin: 0;
   font-weight: 400;
 }
+/* ---------- Tagline Text  ---------- */
 .tagline {
   color: #a9a9b2;
   max-width: 600px;
@@ -63,6 +73,7 @@ body {
   margin-top: 1.5rem;
 }
 
+/* ---------- Fixed Navigation Menu  ---------- */
 nav {
   position: fixed;
   top: 24px;
@@ -72,31 +83,35 @@ nav {
   font-size: 0.9rem;
 }
 
+/* ---------- Navigation Links  ---------- */
 nav a {
   text-decoration: none;
   color: #111;
   opacity: 0.6;
   transition: 0.3s;
 }
-
 nav a:hover {
   opacity: 1;
 }
 
+/* ---------- Layer Management  ---------- */
 header {
   position: relative;
   z-index: 1000;
 }
-
 .hero {
   position: relative;
   z-index: 1;
 }
+
+/* ---------- Horizontal Background Slide Animation ---------- */
 @keyframes bgSlide {
   0%   { transform: translateX(-160px); }
   50%  { transform: translateX(160px); }
   100% { transform: translateX(-160px); }
 }
+
+/* ---------- Trapped Figure Motion (blur + brightness pulses) ---------- */
 @keyframes trappedMove {
   0%   { transform: translate(0, 0) scale(1); filter: blur(28px) brightness(100%); }
   8%   { transform: translate(-12px, -18px) scale(1.02); filter: blur(25px) brightness(120%); }
@@ -119,17 +134,21 @@ header {
 }
 
 /* ===== Desktop Navigation ===== */
+/* ---------- Desktop Menu Layout  ---------- */
 nav .menu-desktop {
     display: flex;
     gap: 20px;
 }
 
+/* ---------- Hidden Hamburger Menu 、 ---------- */
 .hamburger-menu {
     display: none;
 }
 /* PAGE TWO : LIKE PAGE
 ----------------------------------------*/
- body.like-page {
+
+/* ---------- Fullscreen Black Canvas  ---------- */
+body.like-page {
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -139,14 +158,18 @@ nav .menu-desktop {
   display: flex;
   justify-content: center;
   align-items: center;
-background: black;
+  background: black;
 }
+
+/* ---------- Page Title Styling  ---------- */
 .like-page .title {
   font-size: 3rem;
   font-weight: 200;
   margin-bottom: 250px;
   opacity: 0.92;
 }
+
+/* ---------- Background Video Layer  ---------- */
 .bg-video {
   position: fixed;
   top: 0;
@@ -158,37 +181,48 @@ background: black;
   background: black;
 }
 
+/* ---------- Center Content Container ---------- */
 .content {
   text-align: center;
 }
 
+/* ---------- General Title for Like Page ---------- */
 .title {
   font-size: 4rem;
   margin-bottom: 50px;
 }
 
+/* ---------- Heart Container  ---------- */
 .stack {
   position: relative;
 }
 
+/* ---------- Main Clickable Heart Icon ---------- */
 .heart {
   font-size: 80px;
   cursor: pointer;
   margin-bottom: 20px;
   transition: opacity 0.3s ease;
 }
-.heart:active { opacity: 0.4; }
 
+/* ---------- Heart Press Effect  ---------- */
+.heart:active {
+  opacity: 0.4;
+}
+
+/* ---------- Hint Text Below the Heart ---------- */
 .click-hint {
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
+/* ---------- Click Counter Text ---------- */
 .counter {
   font-size: 1rem;
   margin-top: 20px;
 }
 
+/* ---------- Popup Window  ---------- */
 .popup {
   position: fixed;
   left: 50%;
@@ -200,18 +234,21 @@ background: black;
   z-index: 10;
 }
 
+/* ---------- Popup Visible State  ---------- */
 .popup.show {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
   pointer-events: auto;
 }
 
+/* ---------- Popup Image Styling ---------- */
 .popup-img {
   max-width: 80vw;
   max-height: 80vh;
   border-radius: 10px;
 }
 
+/* ---------- Temporary Floating Heart  ---------- */
 .floating-heart {
   position: fixed;
   font-size: 24px;
@@ -221,12 +258,18 @@ background: black;
   z-index: 1000;
 }
 
+/* ---------- Floating Heart Animation ---------- */
 @keyframes floatUp {
   0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   100% { opacity: 0; transform: translate(-50%, -150px) scale(1.5); }
 }
+
+
+
 /* PAGE THREE : SEARCH PAGE
 ----------------------------------------*/
+
+/* ---------- Fullscreen Search Page Layout (center column) ---------- */
 .search-page {
   font-family: "Inter", sans-serif;
   background: linear-gradient(145deg, #ffffff, #f2f6ff);
@@ -242,7 +285,7 @@ background: black;
   position: relative;
 }
 
-
+/* ---------- Surveillance Grid Background (moving subtle grid) ---------- */
 .search-bg-surveil {
   position: fixed;
   inset: 0;
@@ -256,25 +299,26 @@ background: black;
   z-index: -1;
 }
 
+/* ---------- Subtle Background Drift Animation ---------- */
 @keyframes subtleMove {
   0% { transform: translateY(0); }
   100% { transform: translateY(-240px); }
 }
 
-
+/* ---------- Enhanced Background Effect While Typing ---------- */
 .search-page.typing .search-bg-surveil {
   opacity: 0.5;
   filter: brightness(1.6);
 }
 
-
+/* ---------- Title  ---------- */
 #searchTitle {
   display: inline-block;
   transform-origin: center top;
   color: #222;
 }
 
-
+/* ---------- Search Box Container  ---------- */
 .search-box {
   width: min(950px, 90vw);
   height: 68px;
@@ -288,12 +332,14 @@ background: black;
   margin-top: 24px;
 }
 
+/* ---------- Search Icon Styling ---------- */
 .search-icon {
   font-size: 24px;
   opacity: 0.55;
   margin-right: 16px;
 }
 
+/* ---------- Search Input Field ---------- */
 .search-box input {
   flex: 1;
   font-size: 26px;
@@ -303,14 +349,14 @@ background: black;
   color: #222;
 }
 
-
+/* ---------- Main Search Page Title ---------- */
 .title {
   font-size: 64px;
   font-weight: 600;
   margin-bottom: 12px;
 }
 
-
+/* ---------- Search Result Text (hidden until activated) ---------- */
 #results {
   margin-top: 20px;
   font-size: 18px;
@@ -323,17 +369,20 @@ background: black;
   transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
 
+/* ---------- Visible Results State ---------- */
 #results.active {
   opacity: 1;
   visibility: visible;
   transition-delay: 0s;
 }
 
+/* ---------- System Note  ---------- */
 .sys-note {
   opacity: 0.7;
   font-size: 14px;
 }
 
+/* ---------- Suggestion List Below Search Box ---------- */
 .suggest {
   list-style: none;
   margin-top: 25px;
@@ -345,26 +394,30 @@ background: black;
   text-align: center;
 }
 
+/* ---------- Emphasized Suggestion ---------- */
 .suggest li:nth-child(4) {
   margin-top: 10px;
   font-weight: 600;
   opacity: 0.9;
 }
 
+/* ---------- Last Suggestion Line ---------- */
 .suggest li:last-child {
   opacity: 0.9;
 }
 
-
+/* ---------- Typing State Enhancer ---------- */
 .search-page.typing .search-bg-surveil {
   opacity: 0.5;
   filter: brightness(2);
 }
 
 
-/* PAGE FOUR : SCROLLING PAGE
+
+/* PAGE FOUR : SCROLL FEED PAGE
 ----------------------------------------*/
 
+/* ---------- Scrollable Page Frame ---------- */
 .scroll-page {
   min-height: 100vh;
   padding: 80px 40px;
@@ -374,6 +427,7 @@ background: black;
   background-color:black;
 }
 
+/* ---------- Page Heading ---------- */
 .scroll-title {
   font-size: 64px;
   letter-spacing: 0.12em;
@@ -381,12 +435,14 @@ background: black;
   margin-bottom: 8px;
 }
 
+/* ---------- Page Subtitle ---------- */
 .scroll-subtitle {
   font-size: 14px;
   opacity: 0.6;
   margin-bottom: 32px;
 }
 
+/* ---------- Feed Layout ---------- */
 .feed {
   max-width: 720px;
   margin: 0 auto 80px auto;
@@ -396,23 +452,19 @@ background: black;
   padding-right: 10px;
 }
 
-
+/* ---------- Feed Item ---------- */
 .feed-item {
   border-radius: 18px;
   padding: 18px 20px;
-
-
   background: rgba(48, 46, 46, 0.7);
   backdrop-filter: none;
   -webkit-backdrop-filter: blur(12px);
-
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-
   color: #fff;
 }
 
-
+/* ---------- Feed Tag ---------- */
 .feed-tag {
   font-size: 11px;
   text-transform: uppercase;
@@ -420,7 +472,7 @@ background: black;
   opacity: 0.5;
 }
 
-
+/* ---------- Feed Text ---------- */
 .feed-text {
   margin-top: 6px;
   font-size: 14px;
@@ -434,6 +486,7 @@ background: black;
   transition: opacity 0.3s ease;
 }
 
+/* ---------- Hover Message ---------- */
 .feed-item:hover .feed-text::after {
   content: " • System is analyzing your pause time...";
   opacity: 0.7;
@@ -443,6 +496,7 @@ background: black;
   text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
+/* ---------- Button Wrapper ---------- */
 .btn-wrapper {
   width: 100%;
   display: flex;
@@ -450,6 +504,7 @@ background: black;
   margin: 40px 0;
 }
 
+/* ---------- Scroll End Button ---------- */
 .scroll-end-btn {
   display: none;
   padding: 16px 40px;
@@ -470,7 +525,7 @@ background: black;
   transform: translateY(-2px);
 }
 
-
+/* ---------- Background Video ---------- */
 .bg-video {
   position: fixed;
   top: 0;
@@ -480,14 +535,16 @@ background: black;
   object-fit: cover;
   filter: none;
   z-index: -1;
-    opacity: 1
+  opacity: 1;
 }
 
 
 
 
-/* PAGE FIVE : TRACKING PAGE */
+/* PAGE FIVE : TRACKING PAGE
+----------------------------------------*/
 
+/* ---------- Desktop Navigation ---------- */
 body.tracking-page .menu-desktop {
   display: flex;
   justify-content: flex-end;
@@ -516,7 +573,7 @@ body.tracking-page .hamburger-menu {
   display: none;
 }
 
-
+/* ---------- Mobile Navigation ---------- */
 @media (max-width: 768px) {
   body.tracking-page .menu-desktop {
     display: none;
@@ -530,6 +587,8 @@ body.tracking-page .hamburger-menu {
     z-index: 25;
   }
 }
+
+/* ---------- Top Video Strip ---------- */
 .bg-video {
   position: absolute;
   top: 0;
@@ -539,8 +598,10 @@ body.tracking-page .hamburger-menu {
   object-fit: cover;
   z-index: 0;
   filter: brightness(1) blur(1px);
-   background: transparent;
+  background: transparent;
 }
+
+/* ---------- Tracking Page Frame ---------- */
 body.tracking-page {
   margin: 0;
   padding: 0;
@@ -552,7 +613,7 @@ body.tracking-page {
   position: relative;
 }
 
-/* ---- Navigation ---- */
+/* ---------- Global Navigation ---------- */
 body.tracking-page nav {
   background: none;
   top: 0;
@@ -564,13 +625,12 @@ body.tracking-page nav {
   z-index: 10;
 }
 
-
 body.tracking-page nav a.active {
   font-weight: bold;
   text-decoration: underline;
 }
 
-/* ---- REC Indicator ---- */
+/* ---------- REC Indicator ---------- */
 #rec-indicator {
   position: absolute;
   top: 2rem;
@@ -596,7 +656,7 @@ body.tracking-page nav a.active {
   25%,75% { opacity: 0.2; }
 }
 
-/* ---- HUD Info ---- */
+/* ---------- HUD Info ---------- */
 #hud-info {
   position: absolute;
   top: 5rem;
@@ -606,7 +666,7 @@ body.tracking-page nav a.active {
   z-index: 10;
 }
 
-/* ---- Camera Canvas ---- */
+/* ---------- Camera Canvas ---------- */
 #camera-container canvas {
   position: absolute;
   top: 0;
@@ -618,7 +678,7 @@ body.tracking-page nav a.active {
   filter: grayscale(100%) brightness(0.8);
 }
 
-/* ---- Scan Overlay ---- */
+/* ---------- Scan Overlay ---------- */
 .scan-overlay {
   position: absolute;
   top: 0;
@@ -635,7 +695,7 @@ body.tracking-page nav a.active {
   z-index: 5;
 }
 
-/* ---- Monitor Warning ---- */
+/* ---------- Monitor Warning ---------- */
 #monitor-warning {
   position: absolute;
   top: 50%;
@@ -654,6 +714,7 @@ body.tracking-page nav a.active {
 #monitor-warning.show {
   opacity: 1;
 }
+
 /* END OF PAGE 5 */
 
 
@@ -670,11 +731,11 @@ body.tracking-page nav a.active {
   z-index: 1;
 }
 
-
 .recommend-page .rec-card,
 .recommend-page .scroll-end-btn {
   cursor: url('assets/mouse.png') 16 16, auto;
 }
+
 .rec-title {
   text-align: center;
   font-size: 2.4rem;
@@ -689,8 +750,7 @@ body.tracking-page nav a.active {
   font-size: 0.95rem;
 }
 
-
-/* ---- GRID ---- */
+/* GRID */
 .rec-grid {
   max-width: 1100px;
   margin: 0 auto;
@@ -701,8 +761,7 @@ body.tracking-page nav a.active {
   padding: 0 1.5rem 3rem;
 }
 
-
-/* ---- CARD ---- */
+/* CARD */
 .rec-card {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
@@ -712,7 +771,6 @@ body.tracking-page nav a.active {
   transition: transform 0.3s ease, background 0.3s ease;
   min-height: 130px;
 }
-
 
 .rec-card:hover {
   transform: translateY(-6px);
@@ -726,7 +784,6 @@ body.tracking-page nav a.active {
   opacity: 0.65;
   margin-bottom: 0.8rem;
 }
-
 
 .rec-card .desc {
   font-size: 0.92rem;
@@ -744,10 +801,7 @@ body.tracking-page nav a.active {
   opacity: 0.75;
 }
 
-
-
-
-/*Page Seven DISTORTION PAGE ===== */
+/* PAGE SEVEN : DISTORTION PAGE */
 
 .custom-cursor-page {
   cursor: url('assets/mouse2.png') 16 16, auto;
@@ -757,6 +811,7 @@ body.tracking-page nav a.active {
 .custom-cursor-page .scroll-end-btn {
   cursor: pointer;
 }
+
 .distortion-page {
   min-height: 100vh;
   width: 100%;
@@ -765,7 +820,8 @@ body.tracking-page nav a.active {
   text-align: center;
   background: #000;
 }
-/* ==== GLITCH TITLE ==== */
+
+/* GLITCH TITLE */
 .distortion-page .distortion-title {
   position: absolute;
   top: 45%;
@@ -779,8 +835,9 @@ body.tracking-page nav a.active {
   filter: blur(6px) contrast(180%) brightness(150%);
   animation: glitchShake 1s infinite;
 }
+
 .distortion-page .bg-video {
-position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -804,7 +861,7 @@ position: absolute;
   100% { transform: translate(-50%, -50%) rotate(-5deg) translateX(0); opacity: 0.7; }
 }
 
-/* ==== BODY TEXT ==== */
+/* BODY TEXT */
 .distortion-page .distortion-text {
   position: absolute;
   top: 58%;
@@ -832,7 +889,6 @@ position: absolute;
   100% { transform: translateX(-50%) rotate(-2deg) translateY(0); opacity: 0.8; }
 }
 
-
 .distortion-page .distortion-title:hover,
 .distortion-page .distortion-text:hover {
   filter: blur(0px) contrast(100%) brightness(100%);
@@ -843,8 +899,6 @@ position: absolute;
     height: 100vh;
   }
 }
-/* END OF PAGE 7 */
-
 
 /* PAGE EIGHT : LOSE PAGE */
 
@@ -854,7 +908,7 @@ position: absolute;
   color: #fff;
   height: 100vh;
   overflow: hidden;
-background-color: black;
+  background-color: black;
 }
 
 .bg-video {
@@ -926,13 +980,14 @@ background-color: black;
   20%, 22%, 24%, 55% {
     opacity: 0.5;
   }
-
 }
+
 .menu-overlay a {
   color: white;
 }
-/* Page 9*/
-/* ---------- REFLECTION PAGE ---------- */
+
+/* PAGE NINE : REFLECTION PAGE */
+
 body {
   background: #ffffff;
   color: #000000;
@@ -940,14 +995,12 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-/* -------------------- Reflection  -------------------- */
 .reflection-page {
   background: #050509;
   color: #f5f5f5;
   padding: 2rem;
 }
 
-/* -------------------- Layout -------------------- */
 .reflection-layout {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -956,7 +1009,6 @@ body {
   margin: 5rem auto 0;
 }
 
-/* -------------------- Text -------------------- */
 .reflection-text h1 {
   margin-bottom: 1rem;
   font-size: 2.5rem;
@@ -970,7 +1022,6 @@ body {
 
 .reflection-note { margin-top: 1rem; font-style: italic; }
 
-/* -------------------- Log -------------------- */
 .reflection-log {
   background: #0a0a0f;
   padding: 1.5rem;
@@ -991,7 +1042,6 @@ body {
 
 .log-footer { margin-top: 1rem; font-style: italic; }
 
-/* -------------------- Button -------------------- */
 .next-btn {
   display: inline-block;
   margin-top: 1rem;
@@ -1002,12 +1052,12 @@ body {
   border-radius: 8px;
   transition: background 0.3s ease;
 }
+
 .next-btn:hover {
   background: linear-gradient(90deg, #ff7b7b, #ff4c4c);
+  transform: scale(1.05);
 }
 
-
-/* -------------------- CSS Fade In -------------------- */
 .fade {
   opacity: 0;
   animation: fadeIn 1s forwards;
@@ -1021,24 +1071,6 @@ body {
   to { opacity: 1; }
 }
 
-.log-footer { margin-top: 1rem; font-style: italic; }
-
-.next-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.7rem 1.2rem;
-  background: linear-gradient(90deg, #ff4c4c, #ff7b7b);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.3s ease;
-}
-
-
-.next-btn:hover {
-  background: linear-gradient(90deg, #ff7b7b, #ff4c4c);
-  transform: scale(1.05);
-}
 .bg-video {
   position: fixed;
   top: 0;
@@ -1049,7 +1081,6 @@ body {
   z-index: -1;
   opacity: 0.3;
 }
-
 
 
 

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>REFLECTION</title>
   <link rel="stylesheet" href="default.css" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 
@@ -50,22 +51,21 @@
       <h1>REFLECTION</h1>
 
       <p class="reflection-line large">
-        At first, I thought I was simply <span>I</span> choosing.
+       At first, I believed I was freely <span>I</span> choosing.
       </p>
 
       <p class="reflection-line medium">
-        Then I realized the rhythm, the pauses, the “options” were already
-        arranged for me.
+           But then I found the rhythm, the pauses, and the choices all prearranged.
       </p>
 
       <p class="reflection-line small">
-        My view stayed still, but the
+        My gaze remained still, yet the
         <span class="system-highlight">system</span> kept moving underneath.
       </p>
 
       <p class="reflection-note">
-        Vision was static; the text decreased.<br />
-        The more I interacted, the clearer the system’s script became.
+        The static become visible. Each interaction revealed the system's hidden design. <br />
+
       </p>
     </div>
 
@@ -91,16 +91,25 @@
       </ul>
 
       <p class="log-footer">
-        This journey felt personal.<br />
-        But every step fit perfectly into a pre-written system.
-      </p>
 
       <a href="final.html" class="next-btn" id="nextBtn">
         Continue to the final question →
       </a>
     </aside>
-  </section>
+ </section>
 
 
+  <script>
+    const hamburger = document.querySelector('.hamburger-menu button');
+    const overlay = document.querySelector('.menu-overlay');
+    const closeBtn = document.querySelector('.close-menu');
+
+    hamburger.addEventListener('click', () => {
+      overlay.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      overlay.classList.remove('active');
+    });
+  </script>
 </body>
-</html>

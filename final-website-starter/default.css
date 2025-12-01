@@ -489,15 +489,46 @@ background: black;
 /* PAGE FIVE : TRACKING PAGE */
 
 body.tracking-page .menu-desktop {
-  display: none;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 0.8rem 1.5rem;
+  gap: 1rem;
+  z-index: 20;
+  background: transparent;
+}
+
+body.tracking-page .menu-desktop a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+body.tracking-page .menu-desktop a.active {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 body.tracking-page .hamburger-menu {
-  display: block;
-  position: absolute;
-  top: 0.8rem;
-  right: 1.5rem;
-  z-index: 20;
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+  body.tracking-page .menu-desktop {
+    display: none;
+  }
+
+  body.tracking-page .hamburger-menu {
+    display: block;
+    position: fixed;
+    top: 0.8rem;
+    right: 1.5rem;
+    z-index: 25;
+  }
 }
 .bg-video {
   position: absolute;
@@ -523,8 +554,7 @@ body.tracking-page {
 
 /* ---- Navigation ---- */
 body.tracking-page nav {
-  background: none; /* transparent for this page only */
-  position: absolute;
+  background: none;
   top: 0;
   left: 0;
   right: 0;
@@ -534,12 +564,6 @@ body.tracking-page nav {
   z-index: 10;
 }
 
-body.tracking-page nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.85rem;
-  opacity: 0.8;
-}
 
 body.tracking-page nav a.active {
   font-weight: bold;
@@ -1078,7 +1102,7 @@ header {
   display: none;
   position: fixed;
   inset: 0;
-  background: linear-gradient(160deg, #fff7ee, #ffe1b3);
+  background: linear-gradient(160deg, #888888, #383836);
   color: black;
   flex-direction: column;
   justify-content: center;
@@ -1095,14 +1119,14 @@ header {
   font-size: 24px;
   margin: 15px 0;
   text-decoration: none;
-  color: #111;
+  color: #311b1b;
   font-weight: bold;
   opacity: 0;
   transform: translateY(40px);
   animation: slideUp 0.8s ease forwards;
 }
 .menu-overlay a:hover {
-  color: #ff9900;
+  color: #2e0a0a;
   transform: translateY(-4px);
   transition: transform 0.3s;
 }
@@ -1161,4 +1185,26 @@ body.custom-cursor-page7{
 .custom-cursor a,
 .custom-cursor button {
   cursor: pointer;
+}
+
+footer {
+  background: #111;
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+footer .social .wrap {
+  margin-top: 1rem;
+}
+
+footer .social .wrap a {
+  margin: 0 0.5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+footer .social .wrap a:hover {
+  color: #ff0000;
 }
